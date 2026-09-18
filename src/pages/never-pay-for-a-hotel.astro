@@ -91,6 +91,45 @@ const testimonials = [
 			href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800&display=swap"
 			rel="stylesheet"
 		/>
+
+		<!-- Google tag (Papago Vans Google Ads: AW-11054135599) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=AW-11054135599"></script>
+		<script is:inline>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(...args) { window.dataLayer.push(args); }
+			gtag("js", new Date());
+			gtag("config", "AW-11054135599");
+		</script>
+
+		<!-- Meta Pixel (Papago Vans's Pixel: 611277970549442) -->
+		<script is:inline>
+			!(function (f, b, e, v, n, t, s) {
+				if (f.fbq) return;
+				n = f.fbq = function () {
+					n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+				};
+				if (!f._fbq) f._fbq = n;
+				n.push = n;
+				n.loaded = !0;
+				n.version = "2.0";
+				n.queue = [];
+				t = b.createElement(e);
+				t.async = !0;
+				t.src = v;
+				s = b.getElementsByTagName(e)[0];
+				s.parentNode.insertBefore(t, s);
+			})(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+			fbq("init", "611277970549442");
+			fbq("track", "PageView");
+		</script>
+		<noscript>
+			<img
+				height="1"
+				width="1"
+				style="display:none"
+				src="https://www.facebook.com/tr?id=611277970549442&ev=PageView&noscript=1"
+			/>
+		</noscript>
 	</head>
 	<body>
 		<!-- TEMP: CTA buttons scroll to #quote, which currently shows phone/email as a stand-in
@@ -135,6 +174,22 @@ const testimonials = [
 							data-portal-id="43782575"
 						>
 						</div>
+						<script is:inline>
+							window.addEventListener("message", (event) => {
+								const isThisForm =
+									event.data?.type === "hsFormCallback" &&
+									event.data?.eventName === "onFormSubmitted" &&
+									event.data?.id === "41078f26-c831-4179-a452-d316f1eac0db";
+								if (!isThisForm) return;
+
+								window.gtag?.("event", "conversion", {
+									send_to: "AW-11054135599/I6MCKTNpIccEK_ygpcp",
+									value: 1.0,
+									currency: "USD",
+								});
+								window.fbq?.("track", "Lead");
+							});
+						</script>
 					</div>
 				</div>
 			</div>
