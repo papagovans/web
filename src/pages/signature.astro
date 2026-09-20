@@ -99,9 +99,13 @@ const why = [
 ---
 
 <Site title="Signature Pre-Builds | Papago Vans">
-	<!-- Page header -->
+	<!--
+		Page header. It sits on the topographic texture rather than flat white:
+		this page has no photo hero, and the panel gives it the same weight and
+		position /home's hero has.
+	-->
 	<section class="sig-head">
-		<div class="wrap">
+		<div class="sig-head-panel">
 			<nav class="crumbs" aria-label="Breadcrumb">
 				<a href="/home">Home</a> <span>/</span> <span>Signature Pre-Builds</span>
 			</nav>
@@ -113,13 +117,8 @@ const why = [
 			</p>
 			<div class="sig-head-meta">
 				<div>
-					<p class="meta-label">Starting at</p>
-					<p class="meta-value">$180,000</p>
-					<p class="meta-note">Mercedes-Benz Sprinter included</p>
-				</div>
-				<div>
-					<p class="meta-label">Fully specified</p>
-					<p class="meta-value">Up to $240,000</p>
+					<p class="meta-label">Pricing range (includes van)</p>
+					<p class="meta-value">$180,000 &ndash; $240,000</p>
 					<p class="meta-note">Depending on trim and finishes</p>
 				</div>
 				<div>
@@ -151,7 +150,8 @@ const why = [
 							))}
 						</dl>
 						<div class="plan-foot">
-							<p class="plan-price">Starts at $180,000 <span>van included</span></p>
+							<p class="plan-range-label">Pricing range (includes van)</p>
+							<p class="plan-range">$180,000 &ndash; $240,000</p>
 							<div class="plan-ctas">
 								<a href="#" class="btn btn-gold">Request This Build <span class="arw">&#8853;</span></a>
 								<a href="#" class="btn btn-outline">See The Layout</a>
@@ -196,8 +196,14 @@ const why = [
 	</section>
 
 	<style is:global>
-		/* Page header */
-		.sig-head { padding: 48px 0 8px; }
+		/* Page header. Same 20px gutters and radius as /home's hero, so the two
+		   pages open at the same width. CTA.webp is the topo texture. */
+		.sig-head { padding: 24px 0 8px; }
+		.sig-head-panel {
+			width: calc(100% - 40px); margin-inline: auto;
+			background: #fbfbfb url("/home/CTA.webp") center / cover no-repeat;
+			border-radius: var(--r-lg); padding: 56px clamp(26px, 5vw, 72px) 48px;
+		}
 		.crumbs { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
 		.crumbs a:hover { color: var(--ink); }
 		.crumbs span { color: var(--muted); }
@@ -232,8 +238,10 @@ const why = [
 		.plan-spec dd { margin: 2px 0 0; font-size: 20px; font-weight: 700; }
 		/* Pins price and buttons to the bottom so uneven copy still lines up. */
 		.plan-foot { margin-top: auto; padding-top: 24px; }
-		.plan-price { font-size: 19px; font-weight: 700; }
-		.plan-price span { font-size: 12px; font-weight: 500; color: var(--muted); margin-left: 6px; }
+		/* Same construction as the three cards on /home, so a buyer reading both
+		   sees one way of stating a price. */
+		.plan-range-label { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+		.plan-range { font-size: 19px; font-weight: 700; margin-top: 2px; }
 		.plan-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
 
 		/* Why Signature */
