@@ -1,0 +1,271 @@
+---
+/*
+ * Signature Pre-Builds, go.papagovans.com/signature
+ *
+ * Where the "Signature Pre-Build" card on /home lands. It is the fixed-layout
+ * product line: the five floor plans, what each one is for, and the one thing
+ * a buyer actually has to decide between them, which is how many people sleep
+ * in it and how long it can sit off grid.
+ *
+ * Plan names, taglines and specs are the real ones out of the build
+ * configurator's catalog (papagovans-build/lib/catalog.ts), so the two
+ * products cannot tell a buyer different things.
+ *
+ * Pricing is deliberately one number, not five. Phase 1 base price is
+ * $180,000 across every plan, van included, and inventing a spread here just
+ * to make the cards look different would put a made-up number in front of
+ * ownership. What varies is the trim, which is what the range on /home covers.
+ *
+ * Photos are stand-ins from the existing library, not per-plan renders. All
+ * five plans still share one render set in the build app too.
+ */
+
+import Site from "../layouts/Site.astro";
+
+const BUILD_APP = "https://build.papagovans.com";
+
+const plans = [
+	{
+		name: "El Capitan",
+		tagline: "Top-tier luxury. Premium finishes, no limits.",
+		img: "image-1-4.webp",
+		copy: "The one people point at. Premium finishes throughout, the biggest battery bank we build, and a layout flexible enough for a family or a crew. Nothing about it asks you to travel smaller.",
+		specs: [
+			{ k: "Sleeps", v: "2-6" },
+			{ k: "Battery", v: "920Ah" },
+			{ k: "Fresh Water", v: "33G" },
+		],
+	},
+	{
+		name: "Zion",
+		tagline: "Adventure seeker. Built to get off the pavement.",
+		img: "On-the-Brink-Van-3-Large-768x512.jpeg",
+		copy: "Built for people who stop where the road does. Tighter, tougher layout with the gear storage up front instead of the square footage, so it handles washboard and trailheads without a second thought.",
+		specs: [
+			{ k: "Sleeps", v: "2-4" },
+			{ k: "Battery", v: "620Ah" },
+			{ k: "Fresh Water", v: "25G" },
+		],
+	},
+	{
+		name: "Olympus",
+		tagline: "The traveling nomad. Stay out longer, live comfortably.",
+		img: "Papago-Sprinter-Camper-Van-Completed-Build-11-768x512.jpeg",
+		copy: "For the people who do not go home on Sunday. A real workspace, real counter space, and the power to run all of it for weeks at a time without looking for a hookup.",
+		specs: [
+			{ k: "Sleeps", v: "2-6" },
+			{ k: "Battery", v: "920Ah" },
+			{ k: "Fresh Water", v: "20G" },
+		],
+	},
+	{
+		name: "Mammoth",
+		tagline: "The happy camper. Room for the whole crew.",
+		img: "JMO_1216.webp",
+		copy: "The family plan. Sleeping for up to six, a galley two people can stand in at once, and enough storage that nobody is living out of the footwell. Built to make a week with kids pleasant.",
+		specs: [
+			{ k: "Sleeps", v: "2-6" },
+			{ k: "Battery", v: "460Ah" },
+			{ k: "Fresh Water", v: "33G" },
+		],
+	},
+	{
+		name: "Rainier",
+		tagline: "The weekend warrior. Everything you need, nothing you don't.",
+		img: "Sweeney-Van-Final-Shots-1-Large-768x512.jpeg",
+		copy: "The honest one. Everything you need for a long weekend and not one system you will never turn on. It is the fastest of the five to build and the easiest to live with.",
+		specs: [
+			{ k: "Sleeps", v: "2" },
+			{ k: "Battery", v: "460Ah" },
+			{ k: "Fresh Water", v: "20G" },
+		],
+	},
+];
+
+const why = [
+	{
+		h: "The layout is already solved",
+		p: "Every one of these came out of vans we actually built, then got revised until the complaints stopped. You are buying the version that works, not the first draft.",
+	},
+	{
+		h: "It costs less, on purpose",
+		p: "Fixed cabinetry means no redesign, no one-off parts, and no shop time spent figuring it out. That saving goes to you rather than into the build.",
+	},
+	{
+		h: "It gets to you sooner",
+		p: "A Signature build skips the design phase entirely. It is the shortest path from deposit to keys that we offer.",
+	},
+];
+---
+
+<Site title="Signature Pre-Builds | Papago Vans">
+	<!-- Page header -->
+	<section class="sig-head">
+		<div class="wrap">
+			<nav class="crumbs" aria-label="Breadcrumb">
+				<a href="/home">Home</a> <span>/</span> <span>Signature Pre-Builds</span>
+			</nav>
+			<h1>Signature Pre-Builds</h1>
+			<p class="sig-lede">
+				Five layouts we designed ourselves, built over and over, and refined until they
+				were right. The floor plan and cabinetry are set, which is exactly why they cost
+				less and reach you sooner. You pick the plan and the finishes. We handle the rest.
+			</p>
+			<div class="sig-head-meta">
+				<div>
+					<p class="meta-label">Starting at</p>
+					<p class="meta-value">$180,000</p>
+					<p class="meta-note">Mercedes-Benz Sprinter included</p>
+				</div>
+				<div>
+					<p class="meta-label">Fully specified</p>
+					<p class="meta-value">Up to $240,000</p>
+					<p class="meta-note">Depending on trim and finishes</p>
+				</div>
+				<div>
+					<p class="meta-label">Layouts</p>
+					<p class="meta-value">Five</p>
+					<p class="meta-note">All built in Mesa, Arizona</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- The five plans -->
+	<section class="sig-plans">
+		<div class="wrap sig-list">
+			{plans.map((p, i) => (
+				<article class="plan">
+					<div class="plan-img"><img src={`/home/${p.img}`} alt={`The ${p.name} Signature build`} /></div>
+					<div class="plan-body">
+						<p class="plan-index">{String(i + 1).padStart(2, "0")}</p>
+						<h2>{p.name}</h2>
+						<p class="plan-tagline">{p.tagline}</p>
+						<p class="plan-copy">{p.copy}</p>
+						<dl class="plan-specs">
+							{p.specs.map((s) => (
+								<div class="plan-spec">
+									<dt>{s.k}</dt>
+									<dd>{s.v}</dd>
+								</div>
+							))}
+						</dl>
+						<div class="plan-foot">
+							<p class="plan-price">Starts at $180,000 <span>van included</span></p>
+							<div class="plan-ctas">
+								<a href="#" class="btn btn-gold">Request This Build <span class="arw">&#8853;</span></a>
+								<a href="#" class="btn btn-outline">See The Layout</a>
+							</div>
+						</div>
+					</div>
+				</article>
+			))}
+		</div>
+	</section>
+
+	<!-- Why Signature -->
+	<section class="sig-why">
+		<div class="wrap">
+			<h2 class="section-title">Why A Signature Build</h2>
+			<div class="why-grid">
+				{why.map((w) => (
+					<div class="why-card">
+						<h3>{w.h}</h3>
+						<p>{w.p}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Off-ramp to the other two ways to buy -->
+	<section class="sig-next">
+		<div class="wrap sig-next-inner">
+			<div>
+				<h2>Want to change something?</h2>
+				<p>
+					Signature layouts are fixed, and that is the point. If you want to move a wall
+					or pick every system yourself, there are two other ways to get there.
+				</p>
+			</div>
+			<div class="sig-next-ctas">
+				<a href={BUILD_APP} class="btn btn-gold">Build Yours Online <span class="arw">&#8853;</span></a>
+				<a href="#" class="btn btn-outline">Talk About Bespoke</a>
+			</div>
+		</div>
+	</section>
+
+	<style is:global>
+		/* Page header */
+		.sig-head { padding: 48px 0 8px; }
+		.crumbs { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
+		.crumbs a:hover { color: var(--ink); }
+		.crumbs span { color: var(--muted); }
+		.sig-head h1 { font-size: clamp(34px, 5.2vw, 56px); }
+		.sig-lede { max-width: 720px; margin-top: 18px; color: var(--muted); font-size: 16px; }
+		.sig-head-meta {
+			display: flex; gap: 64px; flex-wrap: wrap;
+			margin-top: 38px; padding: 26px 0; border-top: 2px solid var(--line); border-bottom: 2px solid var(--line);
+		}
+		.meta-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+		.meta-value { font-size: 26px; font-weight: 700; margin-top: 2px; }
+		.meta-note { font-size: 12px; color: var(--muted); }
+
+		/* The five plans. Alternating sides so a long page still has rhythm. */
+		.sig-plans { padding: 64px 0 24px; }
+		.sig-list { display: flex; flex-direction: column; gap: 28px; }
+		.plan {
+			display: grid; grid-template-columns: 1fr 1fr; align-items: stretch;
+			border: 2px solid var(--line); border-radius: 18px; overflow: hidden; background: #fff;
+			transition: 0.18s ease;
+		}
+		.plan:hover { border-color: var(--gold); }
+		.plan:nth-child(even) .plan-img { order: 2; }
+		.plan-img img { width: 100%; height: 100%; min-height: 340px; object-fit: cover; }
+		.plan-body { padding: 42px 44px; display: flex; flex-direction: column; }
+		.plan-index { font-size: 12px; font-weight: 700; letter-spacing: 3px; color: var(--gold-deep); }
+		.plan-body h2 { font-size: 32px; margin-top: 6px; }
+		.plan-tagline { font-size: 15px; font-weight: 600; margin-top: 6px; }
+		.plan-copy { font-size: 15px; color: var(--muted); margin-top: 14px; }
+		.plan-specs { display: flex; gap: 40px; margin: 24px 0 0; padding: 18px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+		.plan-spec dt { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+		.plan-spec dd { margin: 2px 0 0; font-size: 20px; font-weight: 700; }
+		/* Pins price and buttons to the bottom so uneven copy still lines up. */
+		.plan-foot { margin-top: auto; padding-top: 24px; }
+		.plan-price { font-size: 19px; font-weight: 700; }
+		.plan-price span { font-size: 12px; font-weight: 500; color: var(--muted); margin-left: 6px; }
+		.plan-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+
+		/* Why Signature */
+		.sig-why { padding: 64px 0; background: var(--soft); }
+		.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 38px; }
+		.why-card { background: #fff; border: 2px solid var(--line); border-radius: 18px; padding: 32px 30px; }
+		.why-card h3 { font-size: 20px; }
+		.why-card p { font-size: 15px; color: var(--muted); margin-top: 12px; }
+
+		/* Off-ramp */
+		.sig-next { padding: 72px 0 8px; }
+		.sig-next-inner {
+			background: var(--dark); color: #fff; border-radius: 18px; padding: 48px;
+			display: flex; align-items: center; justify-content: space-between; gap: 34px; flex-wrap: wrap;
+		}
+		.sig-next-inner h2 { font-size: clamp(26px, 3.2vw, 34px); }
+		.sig-next-inner p { color: rgba(255,255,255,0.78); max-width: 520px; margin-top: 12px; font-size: 15px; }
+		.sig-next-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+		.sig-next-ctas .btn-outline { color: #fff; }
+		.sig-next-ctas .btn-outline:hover { color: var(--ink); }
+
+		@media (max-width: 1000px) {
+			.plan, .why-grid { grid-template-columns: 1fr; }
+			.plan:nth-child(even) .plan-img { order: 0; }
+			.plan-img img { min-height: 240px; }
+			.sig-head-meta { gap: 34px; }
+		}
+		@media (max-width: 640px) {
+			.plan-body { padding: 30px 26px; }
+			.plan-specs { gap: 24px; }
+			.sig-next-inner { padding: 34px 26px; }
+			.plan-ctas .btn, .sig-next-ctas .btn { width: 100%; }
+		}
+	</style>
+</Site>
