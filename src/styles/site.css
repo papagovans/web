@@ -104,7 +104,14 @@ ul { margin: 0; padding: 0; list-style: none; }
 	padding: 6px 14px; border-radius: 999px;
 }
 .path-kicker { font-size: 12px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted); }
-.path-name { font-size: 26px; margin: 8px 0 14px; }
+.path-name { font-size: 26px; margin: 8px 0 0; }
+/* The lead time is the real difference between the three, so it sits directly
+   under the name in ink rather than muted like the kicker above it. */
+.path-timing {
+	font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+	color: var(--ink); margin: 10px 0 14px; padding-bottom: 14px;
+	border-bottom: 1px solid var(--line);
+}
 .path-copy { color: var(--muted); font-size: 15px; }
 /* Pins the price and button to the bottom so all three line up. */
 .path-foot { margin-top: auto; padding-top: 26px; }
