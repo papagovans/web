@@ -15,15 +15,33 @@
 	--r-sm: 14px;
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; background: #fff; }
 body {
 	margin: 0;
 	font-family: Prompt, sans-serif;
 	font-size: 16px;
 	line-height: 1.6;
 	color: var(--ink);
-	background: #fff;
+	/* Transparent, not white: the topo wash below is painted behind the body
+	   box, so a white body background would hide it. The white lives on html. */
+	background: transparent;
 	-webkit-font-smoothing: antialiased;
+}
+/*
+ * Topographic contour wash behind the entire page, the way staging does it.
+ * Mask-1.webp is 1920x1054 near-white line work, tiled.
+ *
+ * position: fixed rather than background-attachment: fixed, which iOS Safari
+ * has never handled well. Sections that set their own background sit on top
+ * of this; the ones that do not let it through, which is most of the page.
+ */
+body::before {
+	content: "";
+	position: fixed;
+	inset: 0;
+	z-index: -1;
+	background: url("/home/Mask-1.webp") repeat;
+	pointer-events: none;
 }
 img { max-width: 100%; display: block; }
 h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.15; }
@@ -70,7 +88,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 .hero-media { position: absolute; inset: 0; }
 .hero-media img { width: 100%; height: 100%; object-fit: cover; }
 .hero-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20,20,22,0.82) 0%, rgba(20,20,22,0.45) 55%, rgba(20,20,22,0.25) 100%); }
-.hero-inner { position: relative; display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; flex-wrap: wrap; padding: 64px 0; color: #fff; }
+/* The horizontal padding is on top of the 1200px .wrap this shares a class
+   with, so at full width the copy sits about 120px off the hero's edge. */
+.hero-inner { position: relative; display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; flex-wrap: wrap; padding: 80px 28px; color: #fff; }
 .hero-copy { max-width: 640px; }
 /* 30% up from the staging 34/5vw/50. The copy column widens with it so
    "Built To Explore" stays on one line at full size.
@@ -169,7 +189,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .process-steps { display: flex; flex-direction: column; gap: 18px; }
 .step-row { display: grid; grid-template-columns: 190px 1fr; gap: 18px; align-items: stretch; }
 .step-img img { width: 100%; height: 100%; min-height: 110px; object-fit: cover; border-radius: var(--r-md); }
-.step-card { border: 1px solid var(--line); border-radius: var(--r-md); padding: 22px; display: flex; gap: 18px; align-items: center; }
+.step-card { background: #fff; border: 1px solid var(--line); border-radius: var(--r-md); padding: 22px; display: flex; gap: 18px; align-items: center; }
 .step-num { flex: none; width: 42px; height: 42px; border-radius: 50%; border: 1.5px solid var(--gold); display: grid; place-content: center; font-weight: 700; }
 .step-card h3 { font-size: 19px; }
 .step-card p { font-size: 13px; color: var(--muted); margin-top: 5px; }
@@ -194,7 +214,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* Reviews */
 .reviews { padding: 72px 0; }
 .review-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 38px; }
-.review { margin: 0; border: 1px solid var(--line); border-radius: var(--r-md); padding: 30px; display: flex; flex-direction: column; gap: 16px; }
+.review { margin: 0; background: #fff; border: 1px solid var(--line); border-radius: var(--r-md); padding: 30px; display: flex; flex-direction: column; gap: 16px; }
 .review p { font-size: 14px; color: var(--muted); }
 .review footer { display: flex; align-items: center; gap: 12px; }
 .review footer img { border-radius: 50%; width: 48px; height: 48px; object-fit: cover; }
@@ -259,6 +279,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 	.step-row { grid-template-columns: 120px 1fr; }
 }
 @media (max-width: 640px) {
+	.hero-inner { padding: 48px 4px; }
 	.hero-ctas { width: 100%; }
 	.buildapp-copy { padding: 38px 26px; }
 	.story { flex-basis: 280px; }
