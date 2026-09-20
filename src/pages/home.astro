@@ -15,26 +15,19 @@
  *   #303C47         footer navy, the value Frame-66.svg paints its ridges with,
  *                   and the same navy the build configurator already uses
  *
- * Three deliberate differences from staging:
+ * Four deliberate differences from staging:
  *   1. The hero is a still rather than the video loop.
- *   2. A "Build Your Van One of Three Ways" section sits under the stats,
+ *   2. Staging's five-stat bar under the hero is gone.
+ *   3. A "Build Your Van One of Three Ways" section takes its place,
  *      splitting buyers between Signature, Tailored and Bespoke.
- *   3. A "Build Your Van" band sits below that, pointing at
- *      build.papagovans.com. Neither exists on staging.
+ *   4. A "Build Your Van" band sits below that, pointing at
+ *      build.papagovans.com. Neither of those exists on staging.
  *
  * Every nav and card link is href="#" on purpose. This is a mockup.
  */
 
 const PHONE = "+1 602-346-0331";
 const BUILD_APP = "https://build.papagovans.com";
-
-const stats = [
-	{ icon: "Group-293.svg", value: "33", unit: "GA", label: "Fresh Water" },
-	{ icon: "Group-297.svg", value: "800", unit: "AH", label: "Lithium ION Battery" },
-	{ icon: "Group-310.svg", value: "300", unit: "W", label: "Solar System" },
-	{ icon: "Group-291.svg", value: "12", unit: "V", label: "AC Unit" },
-	{ icon: "Group-313.svg", value: "100", unit: "%", label: "Custom Built" },
-];
 
 const builds = [
 	{
@@ -173,7 +166,7 @@ const footerCols = [
 			</div>
 			<div class="wrap hero-inner">
 				<div class="hero-copy">
-					<h1>Camper Vans Built<br />To Explore</h1>
+					<h1>Camper Vans<br />Built To Explore</h1>
 					<p>
 						From weekend escapes to full-range adventures, Papago Vans delivers rugged,
 						high-performance conversions ready for any terrain.
@@ -183,19 +176,6 @@ const footerCols = [
 					<a href="#" class="btn btn-outline">View Models</a>
 					<a href="#" class="btn btn-gold">Get Started <span class="arw">&#8853;</span></a>
 				</div>
-			</div>
-		</section>
-
-		<!-- Stats -->
-		<section class="stats">
-			<div class="wrap stats-inner">
-				{stats.map((s) => (
-					<div class="stat">
-						<img src={`/home/${s.icon}`} alt="" width="40" height="40" />
-						<p class="stat-value">{s.value}<span>{s.unit}</span></p>
-						<p class="stat-label">{s.label}</p>
-					</div>
-				))}
 			</div>
 		</section>
 
@@ -498,20 +478,17 @@ const footerCols = [
 			.hero-media img { width: 100%; height: 100%; object-fit: cover; }
 			.hero-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20,20,22,0.82) 0%, rgba(20,20,22,0.45) 55%, rgba(20,20,22,0.25) 100%); }
 			.hero-inner { position: relative; display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; flex-wrap: wrap; padding: 64px 0; color: #fff; }
-			.hero-copy { max-width: 560px; }
-			.hero-copy h1 { font-size: clamp(34px, 5vw, 50px); }
+			.hero-copy { max-width: 640px; }
+			/* 30% up from the staging 34/5vw/50. The copy column widens with it so
+			   "Built To Explore" stays on one line at full size.
+			   The 34px floor is unchanged: the hero nests .wrap inside .wrap, so a
+			   phone only has ~279px to work with and anything larger wraps to four
+			   lines. */
+			.hero-copy h1 { font-size: clamp(34px, 6.5vw, 65px); }
 			.hero-copy p { margin-top: 18px; font-size: 16px; color: rgba(255,255,255,0.88); max-width: 460px; }
 			.hero-ctas { display: flex; flex-direction: column; gap: 12px; min-width: 220px; }
 			.hero-ctas .btn-outline { color: #fff; }
 			.hero-ctas .btn-outline:hover { color: var(--ink); }
-
-			/* Stats */
-			.stats { padding: 44px 0 8px; }
-			.stats-inner { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; text-align: center; }
-			.stat img { margin: 0 auto 10px; width: 32px; height: 32px; }
-			.stat-value { font-size: 26px; font-weight: 700; }
-			.stat-value span { font-size: 12px; font-weight: 600; vertical-align: super; margin-left: 2px; }
-			.stat-label { font-size: 13px; color: var(--muted); }
 
 			/* Three ways to buy (new) */
 			.paths { padding: 72px 0 8px; }
@@ -639,14 +616,12 @@ const footerCols = [
 				.paths-grid { grid-template-columns: 1fr; gap: 26px; }
 				.rail-btn { display: none; }
 				.review-grid { grid-template-columns: 1fr; }
-				.stats-inner { grid-template-columns: repeat(3, 1fr); row-gap: 28px; }
 				.footer-cols { grid-template-columns: repeat(2, 1fr); }
 				.step-row { grid-template-columns: 120px 1fr; }
 			}
 			@media (max-width: 640px) {
 				.hero { min-height: 460px; }
 				.hero-ctas { width: 100%; }
-				.stats-inner { grid-template-columns: repeat(2, 1fr); }
 				.buildapp-copy { padding: 38px 26px; }
 				.story { flex-basis: 280px; }
 			}
