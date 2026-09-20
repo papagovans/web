@@ -29,7 +29,12 @@ body {
 }
 /*
  * Topographic contour wash behind the entire page, the way staging does it.
- * Mask-1.webp is 1920x1054 near-white line work, tiled.
+ *
+ * Staging ships Mask-1.webp at 1920x1054 and 402KB, which made it the heaviest
+ * asset on the page by a factor of four. Ours is the same image stored at 960
+ * wide, lossless, 80KB, and drawn back up to 1920 here. The lines are near
+ * white hairlines at about three percent contrast, so the upscale is not
+ * visible, and lossless at half size beats lossy at full size for line art.
  *
  * position: fixed rather than background-attachment: fixed, which iOS Safari
  * has never handled well. Sections that set their own background sit on top
@@ -41,6 +46,7 @@ body::before {
 	inset: 0;
 	z-index: -1;
 	background: url("/home/Mask-1.webp") repeat;
+	background-size: 1920px auto;
 	pointer-events: none;
 }
 img { max-width: 100%; display: block; }
