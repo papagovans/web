@@ -15,10 +15,12 @@
  *   #303C47         footer navy, the value Frame-66.svg paints its ridges with,
  *                   and the same navy the build configurator already uses
  *
- * Two deliberate differences from staging:
+ * Three deliberate differences from staging:
  *   1. The hero is a still rather than the video loop.
- *   2. A "Build Your Van" band sits under the hero, pointing at
- *      build.papagovans.com. It does not exist on staging.
+ *   2. A "Build Your Van One of Three Ways" section sits under the stats,
+ *      splitting buyers between Signature, Tailored and Bespoke.
+ *   3. A "Build Your Van" band sits below that, pointing at
+ *      build.papagovans.com. Neither exists on staging.
  *
  * Every nav and card link is href="#" on purpose. This is a mockup.
  */
@@ -55,6 +57,42 @@ const builds = [
 		img: "image-5.webp",
 		copy: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
 		specs: ["2-6", "920Ah", "Yes", "33G"],
+	},
+];
+
+/*
+ * Three ways to buy. The ladder is deliberate: each step down trades speed for
+ * control, and the price range rises with it, so the order reads as a decision
+ * rather than a menu. "Tailored" is the name for the configurator tier; it sits
+ * between Signature (fixed) and Bespoke (from scratch) in both senses.
+ */
+const paths = [
+	{
+		name: "Signature Pre-Build",
+		kicker: "Fastest to the road",
+		copy: "Layouts we designed ourselves after years of building vans, then refined over and over. Floor plan and cabinetry are set, which is exactly why they cost less and ship soonest. Pick your finishes and go.",
+		range: "$180,000 &ndash; $240,000",
+		cta: "Explore Signature Builds",
+		href: "#",
+		featured: false,
+	},
+	{
+		name: "Tailored",
+		kicker: "Build your van online",
+		copy: "Start from a signature floor plan and configure every system yourself: power, water, heat, kitchen, storage, finishes. Watch the price move as you go, then download your Build Sheet. Second fastest way to get your van.",
+		range: "$190,000 &ndash; $250,000",
+		cta: "Start Building",
+		href: BUILD_APP,
+		featured: true,
+	},
+	{
+		name: "Bespoke",
+		kicker: "Built from scratch",
+		copy: "A blank van and a designer. Your layout, your cabinetry, your ideas. Nearly anything is on the table. It costs more and takes 9 to 12 months, and for the right owner it is worth every week of it.",
+		range: "$200,000 &ndash; $300,000",
+		cta: "Talk to a Designer",
+		href: "#",
+		featured: false,
 	},
 ];
 
@@ -158,6 +196,34 @@ const footerCols = [
 						<p class="stat-label">{s.label}</p>
 					</div>
 				))}
+			</div>
+		</section>
+
+		<!-- NEW: three ways to buy. Not on staging. -->
+		<section class="paths">
+			<div class="wrap">
+				<h2 class="section-title">Build Your Van One of Three Ways</h2>
+				<p class="section-lede">
+					Every Papago is built by hand in Mesa, Arizona. The only question is how much
+					of it you want to decide. Every price includes the Mercedes-Benz Sprinter.
+				</p>
+				<div class="paths-grid">
+					{paths.map((p) => (
+						<article class={p.featured ? "path-card is-featured" : "path-card"}>
+							{p.featured && <span class="path-flag">Most Popular</span>}
+							<p class="path-kicker">{p.kicker}</p>
+							<h3 class="path-name">{p.name}</h3>
+							<p class="path-copy">{p.copy}</p>
+							<div class="path-foot">
+								<p class="path-range-label">Pricing Range</p>
+								<p class="path-range" set:html={p.range} />
+								<a href={p.href} class={p.featured ? "btn btn-gold btn-block" : "btn btn-outline btn-block"}>
+									{p.cta} <span class="arw">&#8853;</span>
+								</a>
+							</div>
+						</article>
+					))}
+				</div>
 			</div>
 		</section>
 
@@ -447,6 +513,29 @@ const footerCols = [
 			.stat-value span { font-size: 12px; font-weight: 600; vertical-align: super; margin-left: 2px; }
 			.stat-label { font-size: 13px; color: var(--muted); }
 
+			/* Three ways to buy (new) */
+			.paths { padding: 72px 0 8px; }
+			.paths-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; align-items: stretch; }
+			.path-card {
+				position: relative; display: flex; flex-direction: column;
+				border: 1px solid var(--line); border-radius: 18px; padding: 34px 30px 30px;
+				background: #fff; transition: 0.18s ease;
+			}
+			.path-card:hover { border-color: var(--gold); }
+			.path-card.is-featured { border-color: var(--gold); border-width: 2px; background: var(--soft); padding-top: 38px; }
+			.path-flag {
+				position: absolute; top: -13px; left: 30px; background: var(--gold); color: var(--ink);
+				font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+				padding: 6px 14px; border-radius: 999px;
+			}
+			.path-kicker { font-size: 12px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted); }
+			.path-name { font-size: 26px; margin: 8px 0 14px; }
+			.path-copy { color: var(--muted); font-size: 15px; }
+			/* Pins the price and button to the bottom so all three line up. */
+			.path-foot { margin-top: auto; padding-top: 26px; }
+			.path-range-label { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+			.path-range { font-size: 19px; font-weight: 700; margin: 2px 0 20px; }
+
 			/* Build app band (new) */
 			.buildapp { margin: 56px 0 8px; }
 			.buildapp-inner { background: var(--dark); border-radius: 18px; overflow: hidden; display: grid; grid-template-columns: 1.05fr 1fr; align-items: center; }
@@ -547,6 +636,7 @@ const footerCols = [
 				.buildapp-inner, .papago-inner, .process-inner { grid-template-columns: 1fr; }
 				.papago-card { margin-left: 0; margin-top: -30px; }
 				.builds-grid { grid-template-columns: 1fr; }
+				.paths-grid { grid-template-columns: 1fr; gap: 26px; }
 				.rail-btn { display: none; }
 				.review-grid { grid-template-columns: 1fr; }
 				.stats-inner { grid-template-columns: repeat(3, 1fr); row-gap: 28px; }
