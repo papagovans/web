@@ -165,7 +165,12 @@ const footerCols = [
 							<div class="path-foot">
 								<p class="path-range-label">Pricing Range</p>
 								<p class="path-range" set:html={p.range} />
-								<a href={p.href} class={p.featured ? "btn btn-gold btn-block" : "btn btn-outline btn-block"}>
+								<a
+									href={p.href}
+									target="_blank"
+									rel="noopener"
+									class={p.featured ? "btn btn-gold btn-block" : "btn btn-outline btn-block"}
+								>
 									{p.cta} <span class="arw">&#8853;</span>
 								</a>
 							</div>
@@ -186,7 +191,9 @@ const footerCols = [
 						running price. Download your Build Sheet when you&rsquo;re done. Every price
 						includes the Mercedes-Benz Sprinter.
 					</p>
-					<a href={BUILD_APP} class="btn btn-gold">Start Building <span class="arw">&#8853;</span></a>
+					<a href={BUILD_APP} target="_blank" rel="noopener" class="btn btn-gold">
+						Start Building <span class="arw">&#8853;</span>
+					</a>
 				</div>
 				<div class="buildapp-art">
 					<img src="/home/Northrop-Sprinter-144-Final-Pics-30-Large.jpeg" alt="Papago Vans Sprinter conversion in the Arizona desert" />
