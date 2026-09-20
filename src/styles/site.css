@@ -61,7 +61,12 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* Near full bleed: 20px gutters rather than the 1200px content column the
    rest of the page uses. Staging runs about 27px here, so this is the same
    idea, tighter. The copy inside still sits on the 1200px .wrap. */
-.hero { position: relative; margin: 24px auto 0; width: calc(100% - 40px); border-radius: var(--r-lg); overflow: hidden; min-height: 520px; display: flex; align-items: flex-end; }
+/* 85vh measured from the top of the page, not from the hero's own top: the
+   sticky header is 81px and the hero sits 24px below it, so 105px comes off.
+   That leaves 15vh for the next section's title to show above the fold, which
+   is what the 48px .paths padding below is sized against. The 420px floor is
+   for short windows, where 85vh is not enough to hold the copy. */
+.hero { position: relative; margin: 24px auto 0; width: calc(100% - 40px); border-radius: var(--r-lg); overflow: hidden; min-height: max(420px, calc(85vh - 105px)); display: flex; align-items: flex-end; }
 .hero-media { position: absolute; inset: 0; }
 .hero-media img { width: 100%; height: 100%; object-fit: cover; }
 .hero-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20,20,22,0.82) 0%, rgba(20,20,22,0.45) 55%, rgba(20,20,22,0.25) 100%); }
@@ -79,7 +84,12 @@ ul { margin: 0; padding: 0; list-style: none; }
 .hero-ctas .btn-outline:hover { color: var(--ink); }
 
 /* Three ways to buy (new) */
-.paths { padding: 72px 0 8px; }
+/* 48px, not 72: it is what keeps the section title above the fold under an
+   85vh hero. See the .hero comment. */
+/* The hero's Get Started jumps here. scroll-margin-top is 33px: the 81px
+   sticky header minus this section's own 48px of top padding, so the title
+   lands right under the header rather than behind it. */
+.paths { padding: 48px 0 8px; scroll-margin-top: 33px; }
 .paths-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; align-items: stretch; }
 .path-card {
 	position: relative; display: flex; flex-direction: column;
@@ -233,7 +243,6 @@ ul { margin: 0; padding: 0; list-style: none; }
 	.step-row { grid-template-columns: 120px 1fr; }
 }
 @media (max-width: 640px) {
-	.hero { min-height: 460px; }
 	.hero-ctas { width: 100%; }
 	.buildapp-copy { padding: 38px 26px; }
 	.story { flex-basis: 280px; }
