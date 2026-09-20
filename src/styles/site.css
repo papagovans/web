@@ -8,6 +8,11 @@
 	--footer: #303c47;   /* navy: same value Frame-66.svg paints with, and the build app */
 	--line: #ededed;
 	--soft: #f8f8f8;
+	/* Staging rounds its big containers at 30px and its cards at 20px. Tokens
+	   rather than literals so the whole mockup moves together. */
+	--r-lg: 30px;
+	--r-md: 20px;
+	--r-sm: 14px;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -53,7 +58,10 @@ ul { margin: 0; padding: 0; list-style: none; }
 .hamburger span { display: block; width: 16px; height: 2px; background: var(--ink); }
 
 /* Hero */
-.hero { position: relative; margin: 24px auto 0; width: min(1200px, 100% - 48px); border-radius: 18px; overflow: hidden; min-height: 520px; display: flex; align-items: flex-end; }
+/* Near full bleed: 20px gutters rather than the 1200px content column the
+   rest of the page uses. Staging runs about 27px here, so this is the same
+   idea, tighter. The copy inside still sits on the 1200px .wrap. */
+.hero { position: relative; margin: 24px auto 0; width: calc(100% - 40px); border-radius: var(--r-lg); overflow: hidden; min-height: 520px; display: flex; align-items: flex-end; }
 .hero-media { position: absolute; inset: 0; }
 .hero-media img { width: 100%; height: 100%; object-fit: cover; }
 .hero-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20,20,22,0.82) 0%, rgba(20,20,22,0.45) 55%, rgba(20,20,22,0.25) 100%); }
@@ -75,7 +83,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .paths-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; align-items: stretch; }
 .path-card {
 	position: relative; display: flex; flex-direction: column;
-	border: 2px solid var(--line); border-radius: 18px; padding: 34px 30px 30px;
+	border: 2px solid var(--line); border-radius: var(--r-lg); padding: 34px 30px 30px;
 	background: #fff; transition: 0.18s ease;
 }
 .path-card:hover { border-color: var(--gold); }
@@ -95,7 +103,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* Build app band (new) */
 .buildapp { margin: 56px 0 8px; }
-.buildapp-inner { background: var(--dark); border-radius: 18px; overflow: hidden; display: grid; grid-template-columns: 1.05fr 1fr; align-items: center; }
+.buildapp-inner { background: var(--dark); border-radius: var(--r-lg); overflow: hidden; display: grid; grid-template-columns: 1.05fr 1fr; align-items: center; }
 .buildapp-copy { padding: 56px 48px; color: #fff; }
 .buildapp-copy .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); }
 .buildapp-copy h2 { font-size: clamp(28px, 3.4vw, 38px); margin: 10px 0 14px; }
@@ -113,9 +121,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 .builds-rail { display: flex; align-items: center; gap: 16px; margin-top: 40px; }
 .rail-btn { flex: none; width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--line); background: #fff; font-size: 20px; color: var(--ink); cursor: pointer; }
 .builds-grid { flex: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.build-card { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: #fff; display: flex; flex-direction: column; }
+.build-card { border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; background: #fff; display: flex; flex-direction: column; }
 .build-img { padding: 14px 14px 0; }
-.build-img img { border-radius: 10px; width: 100%; height: 170px; object-fit: cover; }
+.build-img img { border-radius: var(--r-sm); width: 100%; height: 170px; object-fit: cover; }
 .build-body { padding: 18px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
 .build-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .build-head h3 { font-size: 20px; }
@@ -128,8 +136,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* The Papago */
 .papago { background: var(--blue); padding: 64px 0; }
 .papago-inner { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 0; }
-.papago-img img { border-radius: 14px; width: 100%; height: 340px; object-fit: cover; }
-.papago-card { background: #fff; border-radius: 14px; padding: 42px; margin-left: -40px; display: flex; flex-direction: column; gap: 18px; align-items: flex-start; }
+.papago-img img { border-radius: var(--r-md); width: 100%; height: 340px; object-fit: cover; }
+.papago-card { background: #fff; border-radius: var(--r-md); padding: 42px; margin-left: -40px; display: flex; flex-direction: column; gap: 18px; align-items: flex-start; }
 .papago-card h2 { font-size: 30px; }
 .papago-card p { font-size: 14px; color: var(--muted); }
 
@@ -140,8 +148,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 .process-head p { margin-top: 16px; color: var(--muted); font-size: 15px; }
 .process-steps { display: flex; flex-direction: column; gap: 18px; }
 .step-row { display: grid; grid-template-columns: 190px 1fr; gap: 18px; align-items: stretch; }
-.step-img img { width: 100%; height: 100%; min-height: 110px; object-fit: cover; border-radius: 12px; }
-.step-card { border: 1px solid var(--line); border-radius: 12px; padding: 22px; display: flex; gap: 18px; align-items: center; }
+.step-img img { width: 100%; height: 100%; min-height: 110px; object-fit: cover; border-radius: var(--r-md); }
+.step-card { border: 1px solid var(--line); border-radius: var(--r-md); padding: 22px; display: flex; gap: 18px; align-items: center; }
 .step-num { flex: none; width: 42px; height: 42px; border-radius: 50%; border: 1.5px solid var(--gold); display: grid; place-content: center; font-weight: 700; }
 .step-card h3 { font-size: 19px; }
 .step-card p { font-size: 13px; color: var(--muted); margin-top: 5px; }
@@ -160,23 +168,48 @@ ul { margin: 0; padding: 0; list-style: none; }
 .stories-rail { display: flex; gap: 18px; margin-top: 38px; padding: 0 24px 6px; overflow-x: auto; scrollbar-width: none; }
 .stories-rail::-webkit-scrollbar { display: none; }
 .story { margin: 0; flex: 0 0 380px; }
-.story img { border-radius: 14px; width: 100%; height: 250px; object-fit: cover; }
+.story img { border-radius: var(--r-md); width: 100%; height: 250px; object-fit: cover; }
 .story figcaption { margin-top: 12px; font-weight: 600; font-size: 15px; }
 
 /* Reviews */
 .reviews { padding: 72px 0; }
 .review-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 38px; }
-.review { margin: 0; border: 1px solid var(--line); border-radius: 14px; padding: 30px; display: flex; flex-direction: column; gap: 16px; }
+.review { margin: 0; border: 1px solid var(--line); border-radius: var(--r-md); padding: 30px; display: flex; flex-direction: column; gap: 16px; }
 .review p { font-size: 14px; color: var(--muted); }
 .review footer { display: flex; align-items: center; gap: 12px; }
 .review footer img { border-radius: 50%; width: 48px; height: 48px; object-fit: cover; }
 .review cite { display: block; font-style: normal; font-weight: 600; font-size: 15px; }
 .review footer span { font-size: 12px; color: var(--muted); }
 
-/* Footer */
-.site-footer { position: relative; background: var(--footer); color: #fff; padding: 120px 0 36px; margin-top: 40px; overflow: hidden; }
-/* Frame-66.svg IS the footer scene, navy ridges and saguaro, not a watermark. */
-.footer-art { position: absolute; left: 50%; transform: translateX(-50%); bottom: 0; width: 100%; min-width: 1280px; pointer-events: none; }
+/* Newsletter band. CTA.webp is the topographic contour texture, near white,
+   with its rounded corners baked into the image. It is the only texture on
+   the site; every other section is flat white. */
+.keep-in-touch { margin: 72px auto 0; width: min(1200px, 100% - 48px); }
+.kit-inner {
+	background: #fbfbfb url("/home/CTA.webp") center / cover no-repeat;
+	border-radius: var(--r-lg); text-align: center;
+	/* Deep bottom pad so the footer's peak can overlap into the band, the way
+	   staging does it. Pairs with the footer's negative top margin below. */
+	padding: 100px 24px clamp(150px, 18vw, 270px);
+	display: flex; flex-direction: column; align-items: center; gap: 14px;
+}
+.kit-inner h2 { font-size: clamp(30px, 4vw, 46px); }
+.kit-inner p { color: var(--muted); font-size: 15px; }
+.kit-inner .btn { margin-top: 12px; }
+
+/* Footer.
+   Frame-66.svg is 1919x931 and its top 254px are transparent: the ridge line
+   is drawn at y=463, and everything below it is the navy field. Staging lets
+   that peak rise over the newsletter band rather than meeting it at a flat
+   edge, so the art is pinned to the footer's top at its natural aspect and
+   the navy only starts where the SVG turns opaque. 463/1919 of the viewport
+   width is where that happens, hence the 24vw hard stop. Below 1280px the
+   art stops scaling, so the stop freezes with it. */
+.site-footer {
+	position: relative; color: #fff; padding: 26vw 0 36px; margin-top: calc(-1 * clamp(120px, 15vw, 230px)); overflow: hidden;
+	background: linear-gradient(to bottom, transparent 24vw, var(--footer) 24vw);
+}
+.footer-art { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 100%; min-width: 1280px; pointer-events: none; }
 .footer-inner { position: relative; }
 .footer-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
 .footer-col h4 { color: var(--gold); font-size: 15px; margin-bottom: 14px; }
