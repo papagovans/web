@@ -1,0 +1,36 @@
+---
+/*
+ * Where every landing page form submission lands. The conversions have
+ * already fired on the landing page before the visitor is sent here, so this
+ * page only records a PageView; it must not fire Lead or the Google
+ * conversion again, or every lead counts twice.
+ *
+ * ?from= carries the landing page slug. Nothing reads it yet; it is there so
+ * the page view can be told apart in analytics later.
+ *
+ * The one button goes to the main website. papagovans.com is the live site
+ * today; point it at the rebuilt site once that replaces it.
+ */
+import Landing from "../layouts/Landing.astro";
+
+const SITE = "https://papagovans.com";
+---
+
+<Landing title="Thank You | Papago Vans" description="We have your details. Someone from Papago Vans will be in touch.">
+	<header class="site-header">
+		<div class="wrap header-inner">
+			<img class="logo" src="/home/Group-278.svg" alt="Papago Vans" width="174" height="27" />
+		</div>
+	</header>
+	<main class="thanks">
+		<div class="wrap thanks-card">
+			<p class="eyebrow eyebrow-muted">Got It</p>
+			<h1>Thank You. Your Van Starts Here.</h1>
+			<p>
+				We have your details. Someone from our shop in Mesa, Arizona will be in
+				touch to talk through how you travel and what your van should do.
+			</p>
+			<a href={SITE} class="btn btn-gold">Explore Papago Vans <span class="arw">&#8853;</span></a>
+		</div>
+	</main>
+</Landing>
