@@ -14,8 +14,8 @@
  * details. A submission goes to /thank-you, which is where the site link lives.
  *
  * Facts are the staging site's, checked 2026-09-25: $180,000 to $250,000
- * Tailored and $200,000 to $300,000 Bespoke, van included; keys in 14 weeks
- * on Tailored. Anything Tim's brief marks [CONFIRM] stays off these pages.
+ * Tailored and $200,000 to $300,000 Bespoke, van included. No build
+ * timelines anywhere, by owner decision 2026-09-25. Anything Tim's brief marks [CONFIRM] stays off these pages.
  */
 
 import Landing from "../layouts/Landing.astro";
@@ -46,7 +46,6 @@ const paths = [
 	{
 		name: "Tailored",
 		kicker: "Start from a proven floor plan",
-		timing: "Keys in your hand: 14 weeks",
 		copy: "Pick one of five layouts we have built dozens of times, then decide every system in it: power, water, heat, kitchen, storage, finishes.",
 		range: "$180,000 - $250,000",
 		featured: true,
@@ -54,8 +53,7 @@ const paths = [
 	{
 		name: "Bespoke",
 		kicker: "Start from an empty van",
-		timing: "Keys in your hand: 9-14 months",
-		copy: "No floor plan, just a blank Sprinter and a designer who draws it around how you actually travel. It takes the long way round, and for the right owner it is worth it.",
+		copy: "No floor plan, just a blank Sprinter and a designer who draws it around how you actually travel. It costs more, and for the right owner it is worth it.",
 		range: "$200,000 - $300,000",
 		featured: false,
 	},
@@ -133,7 +131,6 @@ const paths = [
 							{p.featured && <span class="path-flag">Most Popular</span>}
 							<p class="path-kicker">{p.kicker}</p>
 							<h3 class="path-name">{p.name}</h3>
-							<p class="path-timing">{p.timing}</p>
 							<p class="path-copy">{p.copy}</p>
 							<div class="path-foot">
 								<p class="path-range-label">Pricing range (includes van)</p>

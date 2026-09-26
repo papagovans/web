@@ -98,8 +98,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .path-card.is-featured { border: 3px solid var(--gold); padding-top: 38px; }
 .path-flag { position: absolute; top: -13px; left: 30px; background: var(--gold); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 6px 14px; border-radius: 999px; }
 .path-kicker { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
-.path-name { font-size: 26px; margin-top: 8px; color: #343434; }
-.path-timing { font-size: 12px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; margin: 10px 0 14px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.path-name { font-size: 26px; margin: 8px 0 14px; padding-bottom: 14px; border-bottom: 1px solid var(--line); color: #343434; }
 .path-copy { color: #6f6b64; font-size: 15px; }
 .path-foot { margin-top: auto; padding-top: 26px; }
 .path-range-label { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
