@@ -1,0 +1,90 @@
+---
+/*
+ * Avatar 1, The Trailhead Regular. Tim's brief, 2026-09-24.
+ * Ads A1-1 (trailhead) and A1-2 (gear garage) point here.
+ *
+ * Words to use: built around your gear, trailhead, garage, capable, days
+ * without a hookup, spec. Never: luxury, vanlife, glamping, dream van,
+ * adventure awaits.
+ */
+import AdLanding from "../components/AdLanding.astro";
+---
+
+<AdLanding
+	slug="adventure"
+	title="Wake Up At The Trailhead | Papago Vans"
+	description="Custom Mercedes-Benz Sprinter vans built around your gear, made to order in Mesa, AZ. Keys in 14 weeks, van included."
+	hero={{
+		img: "/lp/scene-trailhead.webp",
+		alt: "A couple at a trailhead beside their Sprinter, rear doors open on a made bed, packs and boots on the ground",
+		eyebrow: "Custom Sprinter builds · Mesa, AZ",
+		h1: "Wake Up At The Trailhead",
+		sub: "Take the life you already love farther, in a custom Sprinter built around your gear. Made to order in Mesa, AZ.",
+		checks: [
+			"Locked gear garage under the bed",
+			"Lithium power and diesel heat for days without a hookup",
+			"Keys in 14 weeks, Sprinter included",
+		],
+	}}
+	pairs={[
+		{
+			problem: "The best campsite is at the trailhead. Your hotel isn't.",
+			solution: "Your bedroom parks where the day starts.",
+			body: "Coffee on the burner while it is still grey outside, first on the trail instead of forty minutes down the valley. Then do it again tomorrow somewhere new.",
+		},
+		{
+			problem: "Your bike spends the night on a roof rack in a motel lot.",
+			solution: "A locked gear garage under the bed.",
+			body: "Bikes, skis, rods and wet gear ride inside, locked and drying. Tell us what you haul and we lay out the garage and the power around it.",
+		},
+		{
+			problem: "The most common complaint from van owners? The electrical system.",
+			solution: "Power for days out, wired in our own shop.",
+			body: "A lithium bank, 400W or 600W of solar, charging while you drive, and an inverter for ordinary outlets. Wired in Mesa and covered by our 1-year craftsmanship warranty.",
+		},
+	]}
+	scene={{
+		img: "/lp/image-2.webp",
+		alt: "A grey Papago Sprinter with a roof rack and ladder, parked in the Arizona desert below the mountains",
+		eyebrow: "Built For The Road That Turns To Dirt",
+		h2: "Spec It Like You Spec Your Gear",
+		paras: [
+			"Pick one of five floor plans we have built dozens of times, then decide every system in it yourself: power, water, heat, storage, wheels and tires. A production van is built for the average buyer. Your gear is not average.",
+			"Hauling something no floor plan fits, like a motorcycle, a raft or three dogs? Bespoke starts from an empty Sprinter and a designer who draws the van around it.",
+		],
+	}}
+	reviews={[
+		{ name: "Michael V.", quote: "Great van conversion place. Veteran owned. Quality service, and they build things to last." },
+		{ name: "Nai S.", quote: "The team truly listened to my needs and made them a reality. From a custom book shelf to smaller detailed preferences, these guys really honored my dreams from start to finish." },
+		{ name: "Brian L.", quote: "There are a handful of van conversion companies in the Phoenix area but Papago is unique. If I ever plan to do another van conversion, I can't imagine doing it anywhere else." },
+	]}
+	included={{
+		h2: "What You Can Spec",
+		items: [
+			["Lithium power and solar", "400W or 600W on the roof, charging while you drive"],
+			["Diesel heat and air conditioning", "Warm at the ski lot, cool in the desert"],
+			["Gear garage", "Under the bed, locked, laid out around what you haul"],
+			["Hot water and a shower", "Exterior shower on any build; indoor in most floor plans"],
+			["Wheels, tires and suspension", "All-terrain packages spec'd on day one, not bolted on later"],
+			["Roof rack, ladder and awning", "Room for gear up top, shade when you need it"],
+			["A real kitchen", "Butcher block counter, induction cooktop option"],
+			["Havelock wool insulation", "Handles moisture better than foam, from Phoenix heat to 20 degrees"],
+			["The Sprinter itself", "Sourced through our dealers, included in the price"],
+			["RVIA certified", "The standard lenders, insurers and campgrounds look for"],
+			["1-year craftsmanship warranty", "On everything we build"],
+			["Veteran owned", "Built by people who show up"],
+		],
+	}}
+	faqs={[
+		{ q: "How long can I stay out without a hookup?", a: "Days rather than hours, and that is most of what the electrical spec buys you. Lithium batteries, 400W or 600W of solar and a diesel heater set the number. The exact figure depends on the weather and whether you are running air conditioning." },
+		{ q: "How does the electrical system work?", a: "Solar charges a lithium bank, the van runs at 12V off that bank, and an inverter makes 110V for ordinary household outlets. It also charges while you drive. An RV has to be plugged in; this does not." },
+		{ q: "What if my gear does not fit a floor plan?", a: "That is what Bespoke is for. It starts from an empty Sprinter and a designer, so the van gets drawn around the motorcycle, the raft or the dogs. It takes nine to fourteen months instead of fourteen weeks." },
+		{ q: "How much does it cost?", a: "A Tailored build runs $180,000 to $250,000 and Bespoke $200,000 to $300,000. Both include the Mercedes-Benz Sprinter. Most of the range is chassis length and how much power, water and off-road equipment you specify." },
+		{ q: "How long does a build take?", a: "Fourteen weeks from the day your build slot is secured for a Tailored build. Bespoke runs nine to fourteen months." },
+		{ q: "Can I finance it?", a: "Yes, through our partner Hearth. We can finance the van and the build together, or the build on its own." },
+	]}
+	close={{
+		h2: "Tell Us What You Ride",
+		p: "We will design the van around it and put a real number on it, Sprinter included.",
+	}}
+/>

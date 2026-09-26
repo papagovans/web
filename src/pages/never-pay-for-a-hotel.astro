@@ -1,480 +1,86 @@
 ---
-const CTA = "Start Your Free Build Quote";
-const LOGO = "https://papagovans.com/wp-content/uploads/2023/06/papagovans.png";
-const HERO_BG = "https://papagovans.com/wp-content/uploads/2025/07/papago_vans.webp";
-const PROBLEM_IMG = "https://papagovans.com/wp-content/uploads/2023/06/DSC_0260-1-min.jpg";
-const BENEFIT_IMGS = [
-	"https://papagovans.com/wp-content/uploads/2025/08/JMO_0164-scaled.jpg",
-	"https://papagovans.com/wp-content/uploads/2025/08/2025-07-21-10-scaled.jpg",
-	"https://papagovans.com/wp-content/uploads/2025/08/JMO_1978-scaled.jpg",
-];
-
-const faqs = [
-	{
-		q: "How much does a custom camper van cost?",
-		a: "It depends on the build tier and options you choose. Our top-tier El Capitan starts at $127,395 (van not included); most builds land well below that. Tell us your budget and we'll show you which tier fits.",
-	},
-	{
-		q: "Do I need to bring my own van?",
-		a: "Yes — the van itself isn't included in the build price. We can also help you source the right Sprinter, Transit, or Promaster before we start the conversion.",
-	},
-	{
-		q: "Can I finance my build?",
-		a: "Yes. We offer financing through Hearth, so you don't have to pay for the full build up front.",
-	},
-	{
-		q: "What's the difference between the build tiers?",
-		a: "Our five tiers (El Capitan, Olympus, Zion, Mammoth, Rainier) range from fully custom, no-limits builds to curated packages with set options. Every tier still gets off-grid power, water, and climate control.",
-	},
-	{
-		q: "Is Papago Vans actually certified?",
-		a: "Yes — we're RVIA-certified and veteran-owned. RVIA certification matters for insurance and for getting into campgrounds that require it.",
-	},
-	{
-		q: "How long does a build take?",
-		a: "Timelines depend on the tier and our current shop schedule. Tell us your ideal timeline in the quote form and we'll give you a real estimate, not a guess.",
-	},
-];
-
-const features = [
-	["Off-grid solar power system", "Keep every system running with zero hookups"],
-	["Lithium-ion battery bank", "Enough capacity for days off the grid"],
-	["Indoor shower", "Rinse off without leaving the van"],
-	["Full kitchen", "Acacia butcher block counter, induction cooktop option"],
-	["Hot & cold running water", "Undermount sink, real plumbing"],
-	["Heating and air conditioning", "Comfortable in the desert or the mountains"],
-	["Premium custom cabinetry", "Built to fit your layout, not a template"],
-	["Roof racks, ladders & awnings", "Room for gear, shade when you need it"],
-	["Adventure-ready storage", "A place for everything, nothing rattling around"],
-	["5 signature build tiers", "From curated packages to fully custom"],
-	["Fully custom layout", "No two Papago vans are alike"],
-	["Veteran-owned & operated", "Built by people who show up"],
-	["RVIA-certified construction", "Meets the standard insurers and campgrounds look for"],
-	["Financing available", "Through our partner, Hearth"],
-	["Sprinter, Transit, or Promaster", "We build on the platform you already trust"],
-	["Made to order in Mesa, AZ", "Every van built in-house, start to finish"],
-];
-
-const testimonials = [
-	{
-		quote:
-			"There is absolutely no way that we could have found a better company to build out our custom dream van to “see the USA”. Hands down, they’re the best in the business.",
-		name: "Mike and Melanie",
-	},
-	{
-		quote:
-			"We have been 100% happy right from our beginning inquiry phone call to waving good-by as we drove our newly finished custom van out the driveway.",
-		name: "Wendy F.",
-	},
-	{
-		quote:
-			"They went above and beyond my wildest dreams and created an absolutely stunning van for me! I encourage anyone considering a build to reach out to Papago Vans.",
-		name: "Debi L.",
-	},
-];
+/*
+ * Base ad page: the general audience, before an avatar is known.
+ * Copy and facts rules live in AdLanding.astro.
+ */
+import AdLanding from "../components/AdLanding.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Never Pay For A Hotel Room Again | Papago Vans</title>
-		<meta
-			name="description"
-			content="Custom Sprinter, Transit, and Promaster camper van conversions built in Mesa, AZ. Veteran-owned, RVIA-certified, financing available."
-		/>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800&display=swap"
-			rel="stylesheet"
-		/>
-
-		<!-- Google tag (Papago Vans Google Ads: AW-11054135599) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=AW-11054135599"></script>
-		<script is:inline>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(...args) { window.dataLayer.push(args); }
-			gtag("js", new Date());
-			gtag("config", "AW-11054135599");
-		</script>
-
-		<!-- Meta Pixel (Papago Vans's Pixel: 611277970549442) -->
-		<script is:inline>
-			!(function (f, b, e, v, n, t, s) {
-				if (f.fbq) return;
-				n = f.fbq = function () {
-					n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
-				};
-				if (!f._fbq) f._fbq = n;
-				n.push = n;
-				n.loaded = !0;
-				n.version = "2.0";
-				n.queue = [];
-				t = b.createElement(e);
-				t.async = !0;
-				t.src = v;
-				s = b.getElementsByTagName(e)[0];
-				s.parentNode.insertBefore(t, s);
-			})(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
-			fbq("init", "611277970549442");
-			fbq("track", "PageView");
-		</script>
-		<noscript>
-			<img
-				height="1"
-				width="1"
-				style="display:none"
-				src="https://www.facebook.com/tr?id=611277970549442&ev=PageView&noscript=1"
-			/>
-		</noscript>
-	</head>
-	<body>
-		<!-- TEMP: CTA buttons scroll to #quote, which currently shows phone/email as a stand-in
-		     until the HubSpot form is designed and embedded there. -->
-
-		<header class="site-header">
-			<div class="wrap header-inner">
-				<a href="/" class="logo"><img src={LOGO} alt="Papago Vans" /></a>
-				<a href="tel:+14807248372" class="phone">
-					<span class="phone-label">Got Questions?</span>
-					<span class="phone-number">(480) 724-8372</span>
-				</a>
-			</div>
-		</header>
-
-		<section class="hero" style={`background-image: linear-gradient(180deg, rgba(30,38,46,.55), rgba(20,26,32,.8)), url(${HERO_BG})`}>
-			<div class="wrap hero-grid">
-				<div class="hero-copy">
-					<h1>Never Pay For A Hotel Room Again</h1>
-					<p class="subhead">
-						A custom Papago Vans conversion turns your Sprinter, Transit, or Promaster into
-						off-grid lodging you already own &mdash; built to order in Mesa, AZ.
-					</p>
-					<ul class="checks">
-						<li>&#10003; Off-grid power, water &amp; climate control built in</li>
-						<li>&#10003; Veteran-owned, RVIA-certified craftsmanship</li>
-						<li>&#10003; Financing available, 5 build tiers to fit any budget</li>
-					</ul>
-					<p class="hero-body">
-						Every trip you take in a hotel or an Airbnb is money spent and gone. A Papago
-						van is money spent once &mdash; then it's yours every time you hit the road,
-						built around exactly how you travel.
-					</p>
-				</div>
-				<div class="hero-form" id="quote">
-					<div class="form-card">
-						<script src="https://js.hsforms.net/forms/embed/43782575.js" defer></script>
-						<div
-							class="hs-form-frame"
-							data-region="na1"
-							data-form-id="41078f26-c831-4179-a452-d316f1eac0db"
-							data-portal-id="43782575"
-						>
-						</div>
-						<script is:inline>
-							window.addEventListener("message", (event) => {
-								const isThisForm =
-									event.data?.type === "hsFormCallback" &&
-									event.data?.eventName === "onFormSubmitted" &&
-									event.data?.id === "41078f26-c831-4179-a452-d316f1eac0db";
-								if (!isThisForm) return;
-
-								window.gtag?.("event", "conversion", {
-									send_to: "AW-11054135599/I6MCKTNpIccEK_ygpcp",
-									value: 1.0,
-									currency: "USD",
-								});
-								window.fbq?.("track", "Lead");
-							});
-						</script>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<section class="problem wrap">
-			<div class="problem-media">
-				<img src={PROBLEM_IMG} alt="Custom Papago Vans camper conversion" loading="lazy" />
-			</div>
-			<div class="problem-copy">
-				<p class="lede">
-					Every night in a hotel is money you will never see again.
-				</p>
-				<p>
-					<strong>Multiply that out.</strong> A week-long trip runs $1,000&ndash;$2,000 in
-					lodging alone, and you still don't get to stay where you actually want to be &mdash;
-					you're stuck near a highway exit, checking out at 11am, packing the car every
-					morning instead of watching the sunrise.
-				</p>
-				<p>
-					<strong>Papago Vans turns that spend into an asset.</strong> A fully custom camper
-					conversion means your bed, kitchen, shower, and power system travel with you.
-					Pull over wherever the view is best. No checkout time. No nightly rate.
-				</p>
-			</div>
-		</section>
-
-		<section id="benefits" class="benefits">
-			<div class="wrap">
-				<h2>Why Owners Switch To A Papago Van</h2>
-				<div class="cards">
-					<div class="card">
-						<img src={BENEFIT_IMGS[0]} alt="" loading="lazy" />
-						<h3>Stop Paying For Lodging</h3>
-						<p>Full off-grid power, water, and climate systems built into every van.</p>
-					</div>
-					<div class="card">
-						<img src={BENEFIT_IMGS[1]} alt="" loading="lazy" />
-						<h3>Go Anywhere, Stay Anywhere</h3>
-						<p>Solar, lithium power, and off-road packages built for real distance.</p>
-					</div>
-					<div class="card">
-						<img src={BENEFIT_IMGS[2]} alt="" loading="lazy" />
-						<h3>Built Around Your Life</h3>
-						<p>5 signature build tiers, fully custom layouts, made to order in Mesa, AZ.</p>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<section id="reviews" class="testimonials">
-			<div class="wrap">
-				<h2>What Owners Say</h2>
-				<div class="cards">
-					{testimonials.map((t) => (
-						<div class="quote-card">
-							<p class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-							<p class="quote">&ldquo;{t.quote}&rdquo;</p>
-							<p class="name">&mdash; {t.name}</p>
-						</div>
-					))}
-				</div>
-				<p class="review-line">4.7&#9733; from 70+ verified customer reviews</p>
-			</div>
-		</section>
-
-		<section id="features" class="features">
-			<div class="wrap">
-				<h2>Every Build Includes</h2>
-				<div class="feature-grid">
-					{features.map(([name, desc]) => (
-						<div class="feature">
-							<span class="check">&#10003;</span>
-							<div>
-								<strong>{name}</strong>
-								<p>{desc}</p>
-							</div>
-						</div>
-					))}
-				</div>
-			</div>
-		</section>
-
-		<section id="faq" class="faq">
-			<div class="wrap">
-				<h2>Questions, Answered</h2>
-				<div class="faq-list">
-					{faqs.map((f) => (
-						<details>
-							<summary>{f.q}</summary>
-							<p>{f.a}</p>
-						</details>
-					))}
-				</div>
-			</div>
-		</section>
-
-		<section class="final-cta">
-			<div class="wrap">
-				<h2>Ready to stop paying for hotels?</h2>
-				<a href="#quote" class="btn btn-primary">{CTA}</a>
-				<p class="fallback">
-					Or call <a href="tel:+14807617175">(480) 761-7175</a> / email
-					<a href="mailto:info@papagovans.com">info@papagovans.com</a>
-				</p>
-			</div>
-		</section>
-
-		<footer class="site-footer">
-			<div class="wrap footer-inner">
-				<div class="footer-brand">
-					<img src={LOGO} alt="Papago Vans" />
-					<p>Custom camper van conversions, built to order in Mesa, AZ.</p>
-					<p>(480) 761-7175 &middot; info@papagovans.com</p>
-					<p>751 N Country Club Dr, Mesa, AZ 85201</p>
-				</div>
-				<div class="footer-links">
-					<a href="#benefits">Why Papago</a>
-					<a href="#features">Features</a>
-					<a href="#reviews">Reviews</a>
-					<a href="#faq">FAQ</a>
-					<a href="#quote">{CTA}</a>
-				</div>
-			</div>
-			<div class="copyright wrap">&copy; {new Date().getFullYear()} All rights reserved | Papago Vans</div>
-		</footer>
-
-		<style>
-			:root {
-				--navy: #303c47;
-				--charcoal: #414042;
-				--steel: #53687b;
-				--sky: #6c93b7;
-				--gold: #f4d969;
-				--cream: #fcfaf3;
-				--offwhite: #f5f5f5;
-			}
-			* { box-sizing: border-box; }
-			html { scroll-behavior: smooth; }
-			body {
-				margin: 0;
-				font-family: "Prompt", sans-serif;
-				color: var(--charcoal);
-				background: #fff;
-			}
-			h1, h2, h3 { font-weight: 800; margin: 0 0 .5em; text-transform: uppercase; letter-spacing: .01em; }
-			p { line-height: 1.6; }
-			.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
-
-			.btn {
-				display: inline-block;
-				font-weight: 700;
-				text-transform: uppercase;
-				letter-spacing: .05em;
-				text-decoration: none;
-				padding: 16px 32px;
-				border-radius: 4px;
-				font-size: 15px;
-			}
-			.btn-primary { background: var(--gold); color: var(--navy); }
-			.btn-primary:hover { background: #efc945; }
-			.btn-ghost { color: #fff; border: 2px solid #fff; padding: 10px 20px; font-size: 13px; }
-			.btn-ghost:hover { background: rgba(255,255,255,.15); }
-
-			.site-header {
-				position: sticky; top: 0; z-index: 10;
-				background: var(--navy);
-			}
-			.header-inner {
-				display: flex; align-items: center; justify-content: space-between;
-				padding-top: 14px; padding-bottom: 14px;
-			}
-			.logo img { height: 65px; display: block; }
-			.phone { text-decoration: none; text-align: right; line-height: 1.2; }
-			.phone-label {
-				display: block; color: var(--gold); font-size: 11px; font-weight: 700;
-				text-transform: uppercase; letter-spacing: .08em;
-			}
-			.phone-number { display: block; color: #fff; font-size: 19px; font-weight: 700; }
-
-			.hero {
-				background-size: cover; background-position: center;
-				padding: 70px 0 100px;
-				color: #fff;
-			}
-			.hero-grid {
-				display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: start;
-			}
-			.hero-copy { padding-top: 40px; }
-			.hero h1 { font-size: clamp(43px, 5.25vw, 65px); line-height: 1.05; margin-bottom: .4em; }
-			.subhead { font-size: 22px; color: #e9edf1; margin-bottom: 24px; }
-			.checks { list-style: none; padding: 0; margin: 60px 0 24px; display: grid; gap: 6px; }
-			.checks li { font-size: 19px; font-weight: 500; }
-			.hero-body { font-size: 15px; color: #d3d9de; max-width: 46ch; }
-
-			.hero-form { padding-top: 0; }
-			.form-card {
-				background: var(--cream); border-radius: 10px; padding: 4px 14px 12px;
-				box-shadow: 0 20px 50px rgba(0,0,0,.35); color: var(--charcoal);
-			}
-			@media (max-width: 860px) {
-				.hero-grid { grid-template-columns: 1fr; }
-				.hero-copy { padding-top: 0; }
-			}
-
-			.problem {
-				display: grid; grid-template-columns: 1fr 1fr; gap: 56px;
-				align-items: center; padding: 90px 24px;
-			}
-			.problem-media img { width: 100%; border-radius: 8px; display: block; }
-			.lede { font-size: 26px; font-weight: 700; color: var(--navy); line-height: 1.3; }
-			@media (max-width: 860px) { .problem { grid-template-columns: 1fr; padding: 60px 24px; } }
-
-			.benefits, .testimonials, .features, .faq { padding: 90px 0; }
-			.benefits { background: var(--cream); }
-			.benefits h2, .testimonials h2, .features h2, .faq h2 {
-				text-align: center; font-size: 32px; margin-bottom: 48px; color: var(--navy);
-			}
-			.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
-			@media (max-width: 860px) { .cards { grid-template-columns: 1fr; } }
-			.card { text-align: center; }
-			.card img { width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 18px; }
-			.card h3 { color: var(--navy); font-size: 20px; }
-
-			.testimonials { background: #fff; }
-			.quote-card {
-				background: var(--offwhite); border-radius: 8px; padding: 28px;
-				display: flex; flex-direction: column; gap: 12px;
-			}
-			.stars { color: var(--gold); letter-spacing: 2px; margin: 0; }
-			.quote { font-size: 15px; color: var(--charcoal); flex-grow: 1; }
-			.name { font-weight: 600; color: var(--steel); margin: 0; }
-			.review-line { text-align: center; margin-top: 36px; font-weight: 600; color: var(--navy); font-size: 17px; }
-
-			.features { background: var(--navy); color: #fff; }
-			.features h2 { color: #fff; }
-			.feature-grid {
-				display: grid; grid-template-columns: 1fr 1fr; gap: 20px 48px;
-			}
-			@media (max-width: 700px) { .feature-grid { grid-template-columns: 1fr; } }
-			.feature { display: flex; gap: 14px; align-items: flex-start; }
-			.check { color: var(--gold); font-weight: 800; font-size: 18px; line-height: 1.4; }
-			.feature strong { display: block; font-size: 16px; }
-			.feature p { margin: 2px 0 0; font-size: 14px; color: #c7d0d8; }
-
-			.faq-list { max-width: 760px; margin: 0 auto; }
-			details {
-				border-bottom: 1px solid #e2e2e2; padding: 18px 0;
-			}
-			summary {
-				cursor: pointer; font-weight: 600; font-size: 17px; color: var(--navy);
-				list-style: none; position: relative; padding-right: 28px;
-			}
-			summary::-webkit-details-marker { display: none; }
-			summary::after {
-				content: "+"; position: absolute; right: 0; top: 0; font-size: 22px; color: var(--steel);
-			}
-			details[open] summary::after { content: "\2212"; }
-			details p { margin: 14px 0 0; color: var(--charcoal); font-size: 15px; }
-
-			.final-cta {
-				background: var(--gold);
-				text-align: center;
-				padding: 80px 0;
-			}
-			.final-cta h2 { color: var(--navy); font-size: 34px; }
-			.final-cta .btn-primary { background: var(--navy); color: #fff; }
-			.final-cta .btn-primary:hover { background: #253038; }
-			.final-cta .fallback { margin-top: 18px; font-size: 14px; color: var(--charcoal); }
-			.final-cta .fallback a { color: var(--navy); font-weight: 600; }
-
-			.site-footer { background: var(--charcoal); color: #d8d8d8; padding-top: 56px; }
-			.footer-inner {
-				display: flex; justify-content: space-between; gap: 40px; flex-wrap: wrap;
-				padding-bottom: 40px;
-			}
-			.footer-brand img { height: 34px; margin-bottom: 12px; }
-			.footer-brand p { font-size: 14px; margin: 4px 0; color: #b7b7b7; }
-			.footer-links { display: flex; flex-direction: column; gap: 10px; }
-			.footer-links a { color: #d8d8d8; text-decoration: none; font-size: 14px; }
-			.footer-links a:hover { color: var(--gold); }
-			.copyright {
-				border-top: 1px solid rgba(255,255,255,.1);
-				padding: 18px 24px; font-size: 13px; color: #999;
-			}
-		</style>
-	</body>
-</html>
+<AdLanding
+	slug="base"
+	title="Never Pay For A Hotel Room Again | Papago Vans"
+	description="Custom Mercedes-Benz Sprinter camper vans, built to order in Mesa, AZ. Van included in every price. Veteran owned, RVIA certified."
+	hero={{
+		img: "/lp/hero-lg.webp",
+		alt: "A Papago Vans Sprinter with its pop-top raised at a pine forest campsite, a family around the fire at dusk",
+		eyebrow: "Custom Sprinter camper vans · Mesa, AZ",
+		h1: "Never Pay For A Hotel Room Again",
+		sub: "Your bed, your kitchen and your shower, parked wherever you stopped. Built to order in Mesa, Arizona, with the Mercedes-Benz Sprinter included in the price.",
+		checks: [
+			"Power, water, heat and air built in",
+			"Veteran owned and RVIA certified",
+			"Keys in 14 weeks on a proven floor plan",
+		],
+	}}
+	pairs={[
+		{
+			problem: "The hotel is never where you actually wanted to be.",
+			solution: "Your bed parks where the view is.",
+			body: "Hotels sit by the highway exit, checkout is at 11, and the car gets repacked every morning. A Papago goes where you were headed and stays as long as you like.",
+		},
+		{
+			problem: "Custom builders are known for moving the date.",
+			solution: "Keys in 14 weeks, published before you sign.",
+			body: "A Tailored build starts from one of five floor plans we have built dozens of times. That is why the timeline is a number and not a guess.",
+		},
+		{
+			problem: "The quote was not the price.",
+			solution: "Our price includes the van.",
+			body: "A Tailored build runs $180,000 to $250,000 with the Sprinter included. Most of that range is chassis length and how much power, water and off-road equipment you choose.",
+		},
+	]}
+	scene={{
+		img: "/lp/collage-feature.webp",
+		alt: "Three children eating breakfast at the dinette of a Papago van, back doors open onto pine forest",
+		eyebrow: "Everyone Fits",
+		h2: "Breakfast Wherever You Woke Up",
+		paras: [
+			"Two to six people depending on the floor plan, the chassis length and whether you add a pop-top. Nobody draws the short straw and sleeps on a hotel rollaway.",
+			"Lithium power and solar keep the lights, the water pump and the heat running without a hookup, and it charges while you drive. Pull over where the view is best. No checkout time. No nightly rate.",
+		],
+	}}
+	reviews={[
+		{ name: "Mike and Melanie", quote: "There is absolutely no way that we could have found a better company to build out our custom dream van to see the USA. Hands down, they're the best in the business." },
+		{ name: "Danielle M.", quote: "They created my custom camper van better than I even imagined. The attention to detail and the little things meant the most!" },
+		{ name: "Nicole P.", quote: "They listened to my wants and needs and helped me every step of the way to design my campervan exactly how I wanted it." },
+	]}
+	included={{
+		h2: "What Goes Into A Papago",
+		items: [
+			["Lithium power and solar", "400W or 600W on the roof, and it charges while you drive"],
+			["Heat and air conditioning", "Comfortable in the desert or the mountains"],
+			["Hot and cold running water", "Undermount sink, real plumbing"],
+			["A real kitchen", "Acacia butcher block counter, induction cooktop option"],
+			["Shower options", "Exterior shower on any build; indoor shower and toilet in most floor plans"],
+			["Custom cabinetry", "Built in our Mesa shop to fit your layout"],
+			["Your finishes", "Flooring, walls, cabinets and countertop from in-stock swatches"],
+			["The Sprinter itself", "Sourced through dealers we already work with, included in the price"],
+			["RVIA certified", "The standard lenders, insurers and campgrounds look for"],
+			["1-year craftsmanship warranty", "We stand behind what we build"],
+			["Financing available", "The van and the build together, or the build on its own"],
+			["Veteran owned", "Built by people who show up"],
+		],
+	}}
+	faqs={[
+		{ q: "How much does a Papago van cost?", a: "A Tailored build runs $180,000 to $250,000 and a Bespoke build $200,000 to $300,000. Both include the Mercedes-Benz Sprinter. Most of the range is chassis length and how much power, water and off-road equipment you specify." },
+		{ q: "Do I need to bring my own van?", a: "No. We source it through dealerships we already work with, and the price includes it. If you already own a Sprinter, bring it and we will price the build on its own." },
+		{ q: "How long does a build take?", a: "Fourteen weeks from the day your build slot is secured for a Tailored build. Bespoke runs nine to fourteen months, because it starts at a drawing board rather than a proven floor plan." },
+		{ q: "Can I finance my build?", a: "Yes, through our partner Hearth. We can finance the van and the build together, or the build on its own." },
+		{ q: "Why does RVIA certification matter?", a: "Lenders and insurers treat a certified conversion as an RV rather than a modified cargo van, which is what makes RV-term lending and proper coverage available. Many campgrounds require it too." },
+		{ q: "How many people can it sleep?", a: "Two to six, depending on the floor plan, the chassis length and whether you add a pop-top." },
+	]}
+	close={{
+		h2: "Ready To Stop Paying For Hotels?",
+		p: "Tell us how you travel. We will put a real number on your van, Sprinter included.",
+	}}
+/>
