@@ -90,12 +90,25 @@ ul { margin: 0; padding: 0; list-style: none; }
 .pair h2 { font-size: 22px; color: var(--navy); }
 .pair h2 + p { margin-top: 12px; font-size: 16px; line-height: 1.65; color: var(--muted); }
 
-.scene { padding: 72px 0; }
-.scene-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
-.scene-inner img { width: 100%; height: auto; border-radius: var(--r-lg); }
-.scene-copy h2 { font-size: clamp(28px, 3.6vw, 42px); margin: 12px 0 18px; color: var(--navy); }
-.scene-copy p:not(.eyebrow) { font-size: 17px; line-height: 1.7; color: var(--muted); max-width: 540px; }
-.scene-copy p + p { margin-top: 14px; }
+/* What We Do, from the staging home page. The section runs full width and
+   clips; its contents keep a 1100px measure. The photo row sits on a bar of
+   bark brown (#372523, sampled from staging's pine trunks) that border-image
+   paints to both page edges without widening the page. */
+.showcase { padding: 20px 0 0; overflow-x: clip; }
+.showcase > * { width: min(1100px, 100% - 32px); margin-inline: auto; }
+.showcase-head { text-align: center; padding: 56px 24px 36px; max-width: 980px; }
+.showcase-eyebrow { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; color: #372523; }
+.showcase-head h2 { margin-top: 12px; font-size: clamp(28px, 4vw, 48px); line-height: 1.1; color: #372523; text-wrap: balance; }
+.showcase-proof { margin-top: 22px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 0; font-size: 15px; font-weight: 600; color: #372523; }
+.showcase-proof li + li::before { content: "\00B7"; margin: 0 14px; color: var(--gold-deep); font-weight: 700; }
+.showcase-main { aspect-ratio: 12 / 5; border-radius: 18px 18px 0 0; overflow: hidden; background: var(--navy); }
+.showcase-main img { width: 100%; height: 100%; object-fit: cover; object-position: 70% 50%; }
+.showcase-row {
+	display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 20px 0;
+	border-image: linear-gradient(#372523 0 0) fill 0 / / 0 100vmax;
+}
+.showcase-cell { aspect-ratio: 3 / 2; border-radius: 14px; overflow: hidden; background: var(--soft); }
+.showcase-cell img { width: 100%; height: 100%; object-fit: cover; }
 
 .section-title { font-size: clamp(26px, 3.2vw, 38px); text-align: center; color: var(--navy); }
 .section-lede { max-width: 620px; margin: 14px auto 0; text-align: center; color: var(--muted); font-size: 16px; }
@@ -167,10 +180,18 @@ ul { margin: 0; padding: 0; list-style: none; }
 @media (max-width: 960px) {
 	.hero-grid { grid-template-columns: 1fr; gap: 32px; min-height: 0; padding: 108px 0 48px; }
 	.pairs-grid, .review-grid { grid-template-columns: 1fr; }
-	.scene-inner { grid-template-columns: 1fr; gap: 28px; }
 	.pairs { padding-top: 56px; }
 }
 @media (max-width: 720px) {
+	/* Staging's phone layout: the wide photo crops to 4:3 and the row becomes a
+	   swipeable strip, one and a bit photos wide. */
+	.showcase-head { padding: 40px 8px 20px; }
+	.showcase-head h2 { font-size: 28px; }
+	.showcase-proof { display: grid; grid-template-columns: repeat(2, auto); gap: 8px 22px; font-size: 14px; }
+	.showcase-proof li + li::before { content: none; }
+	.showcase-main { aspect-ratio: 4 / 3; }
+	.showcase-row { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+	.showcase-cell { flex: 0 0 70%; scroll-snap-align: start; }
 	.logo img { width: 128px; height: auto; }
 	.paths-grid, .included-grid { grid-template-columns: 1fr; }
 	.trust-inner { gap: 6px 20px; font-size: 13px; }

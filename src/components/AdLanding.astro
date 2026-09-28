@@ -31,14 +31,15 @@ interface Props {
 	hero: { img: string; alt: string; eyebrow: string; h1: string; sub: string; checks: string[] };
 	/** Three problem and solution pairs, matched to the ads that point here. */
 	pairs: { problem: string; solution: string; body: string }[];
-	scene: { img: string; alt: string; eyebrow: string; h2: string; paras: string[] };
+	/** Interiors for the What We Do photo row, eight, all 600x400. */
+	photos: { img: string; alt: string }[];
 	reviews: { name: string; quote: string }[];
 	included: { h2: string; items: [string, string][] };
 	faqs: { q: string; a: string }[];
 	close: { h2: string; p: string };
 }
 
-const { slug, title, description, hero, pairs, scene, reviews, included, faqs, close } = Astro.props;
+const { slug, title, description, hero, pairs, photos, reviews, included, faqs, close } = Astro.props;
 
 /* The ad pages' own line, switched in on 2026-09-17. Printed in the footer as
    plain text for trust; it is deliberately not a tel: link. */
@@ -115,14 +116,29 @@ const paths = [
 			</div>
 		</section>
 
-		<section class="scene">
-			<div class="wrap scene-inner">
-				<img src={scene.img} alt={scene.alt} loading="lazy" decoding="async" />
-				<div class="scene-copy">
-					<p class="eyebrow eyebrow-muted">{scene.eyebrow}</p>
-					<h2>{scene.h2}</h2>
-					{scene.paras.map((p) => <p>{p}</p>)}
-				</div>
+		<!-- What We Do, lifted from the stage.papagovans.com home page: same
+		     heading, proof line and photo, with the photo row on its bark brown
+		     bar. The row carries this page's own interiors. Staging's photo is a
+		     drag-to-reveal slider; here it is a still, because the form is the
+		     only thing on the page to interact with. -->
+		<section class="showcase">
+			<header class="showcase-head">
+				<p class="showcase-eyebrow">What We Do</p>
+				<h2>We transform Sprinter, Transit and ProMaster vans into lean, mean touring machines.</h2>
+				<ul class="showcase-proof">
+					<li>RVIA certified</li>
+					<li>Authorized Mercedes-Benz, Ford and RAM dealer</li>
+					<li>Veteran owned</li>
+					<li>Built by hand in Mesa, AZ</li>
+				</ul>
+			</header>
+			<div class="showcase-main">
+				<img src="/lp/what-we-do.webp" alt="A lifted grey Papago Sprinter with a roof light bar, ladder and winch bumper, parked among tall pines" width="1600" height="667" loading="lazy" decoding="async" />
+			</div>
+			<div class="showcase-row">
+				{photos.map((ph) => (
+					<div class="showcase-cell"><img src={ph.img} alt={ph.alt} width="600" height="400" loading="lazy" decoding="async" /></div>
+				))}
 			</div>
 		</section>
 
