@@ -1,10 +1,11 @@
-/* Tokens copied from stage.papagovans.com app/globals.css (Hybrid
-   direction). Change them there first, then here. */
+/* Tokens copied from stage.papagovans.com app/(frontend)/globals.css
+   (Hybrid direction), last matched 2026-09-28. Change them there first,
+   then here. */
 :root {
 	--gold: #f4d969;
 	--gold-deep: #e9ca47;
 	--ink: #414042;
-	--muted: #7b8591;
+	--muted: #626c78;
 	--navy: #303c47;
 	--line: #e6e0d2;
 	--soft: #f2ede1;
@@ -26,7 +27,7 @@ body::before {
 	background: url("/home/Mask-1.webp") repeat; background-size: 1920px auto;
 }
 img { max-width: 100%; display: block; }
-h1, h2, h3 { margin: 0; font-family: Prompt, sans-serif; font-weight: 700; line-height: 1.12; letter-spacing: -0.01em; text-transform: uppercase; }
+h1, h2, h3 { margin: 0; font-family: Prompt, sans-serif; font-weight: 700; line-height: 1.12; letter-spacing: -0.01em; }
 p { margin: 0; }
 a { color: inherit; text-decoration: none; }
 ul { margin: 0; padding: 0; list-style: none; }
@@ -45,7 +46,14 @@ ul { margin: 0; padding: 0; list-style: none; }
 .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
 .eyebrow-muted { color: var(--muted); }
 
-.site-header { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--line); }
+/* Staging's home header: pinned, dark glass over the photograph. The logo SVG
+   is dark, so it is forced white rather than shipping a second file. */
+.site-header {
+	position: fixed; inset: 0 0 auto; z-index: 50;
+	background: rgba(18, 20, 22, 0.62);
+	-webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+}
+.site-header .logo { filter: brightness(0) invert(1); }
 .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 0; }
 
 /* Hero: photograph, copy on the left, the form on the right. The form
@@ -57,7 +65,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 	content: ""; position: absolute; inset: 0;
 	background: linear-gradient(90deg, rgba(18,20,22,0.78) 0%, rgba(18,20,22,0.5) 55%, rgba(18,20,22,0.35) 100%);
 }
-.hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; padding: 72px 0; min-height: min(760px, calc(100svh - 72px)); }
+.hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; padding: 136px 0 72px; min-height: min(820px, 100svh); }
 .hero h1 { font-size: clamp(38px, 5.6vw, 68px); line-height: 1.02; margin-top: 14px; }
 .hero-sub { margin-top: 20px; max-width: 560px; font-size: clamp(17px, 1.8vw, 21px); line-height: 1.5; font-weight: 500; }
 .hero-checks { margin-top: 28px; display: grid; gap: 10px; }
@@ -97,6 +105,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 .path-card { position: relative; display: flex; flex-direction: column; background: #fff; border: 2px solid #e7e2d9; border-radius: var(--r-lg); padding: 34px 30px 30px; }
 .path-card.is-featured { border: 3px solid var(--gold); padding-top: 38px; }
 .path-flag { position: absolute; top: -13px; left: 30px; background: var(--gold); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 6px 14px; border-radius: 999px; }
+/* Staging gives each path card a picture above its copy. */
+.path-img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: var(--r-md); margin-bottom: 22px; background: var(--soft); }
 .path-kicker { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
 .path-name { font-size: 26px; margin: 8px 0 14px; padding-bottom: 14px; border-bottom: 1px solid var(--line); color: #343434; }
 .path-copy { color: #6f6b64; font-size: 15px; }
@@ -155,7 +165,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .copyright { font-size: 12px; color: rgba(255,255,255,0.6); }
 
 @media (max-width: 960px) {
-	.hero-grid { grid-template-columns: 1fr; gap: 32px; min-height: 0; padding: 48px 0; }
+	.hero-grid { grid-template-columns: 1fr; gap: 32px; min-height: 0; padding: 108px 0 48px; }
 	.pairs-grid, .review-grid { grid-template-columns: 1fr; }
 	.scene-inner { grid-template-columns: 1fr; gap: 28px; }
 	.pairs { padding-top: 56px; }
@@ -172,7 +182,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 /* Thank-you page. Same paper, same topo, one button back to the main site. */
-.thanks { min-height: calc(100svh - 60px); display: grid; place-items: center; padding: 64px 0; }
+.thanks { min-height: 100svh; display: grid; place-items: center; padding: 120px 0 64px; }
 .thanks-card { max-width: 680px; text-align: center; background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-lg); padding: clamp(40px, 7vw, 72px) clamp(22px, 6vw, 56px); }
 .thanks-card h1 { font-size: clamp(32px, 5vw, 52px); color: var(--navy); margin-top: 12px; }
 .thanks-card p:not(.eyebrow) { margin-top: 18px; font-size: 17px; line-height: 1.65; color: var(--muted); }

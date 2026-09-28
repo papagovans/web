@@ -14,7 +14,7 @@
  * details. A submission goes to /thank-you, which is where the site link lives.
  *
  * Facts are the staging site's, checked 2026-09-25: $180,000 to $250,000
- * Tailored and $200,000 to $300,000 Bespoke, van included. No build
+ * Tailored and $250,000 to $350,000 Bespoke (raised 2026-09-26), van included. No build
  * timelines anywhere, by owner decision 2026-09-25. Anything Tim's brief marks [CONFIRM] stays off these pages.
  */
 
@@ -48,13 +48,17 @@ const paths = [
 		kicker: "Start from a proven floor plan",
 		copy: "Pick one of five layouts we have built dozens of times, then decide every system in it: power, water, heat, kitchen, storage, finishes.",
 		range: "$180,000 - $250,000",
+		img: "/lp/tailored.webp",
+		alt: "A cutaway render of a Papago floor plan: bed, galley, dinette and swivel seats",
 		featured: true,
 	},
 	{
 		name: "Bespoke",
 		kicker: "Start from an empty van",
 		copy: "No floor plan, just a blank Sprinter and a designer who draws it around how you actually travel. It costs more, and for the right owner it is worth it.",
-		range: "$200,000 - $300,000",
+		range: "$250,000 - $350,000",
+		img: "/lp/bespoke.avif",
+		alt: "Inside a Bespoke Papago build: hex-tiled galley, wood ceiling and a tiled shower",
 		featured: false,
 	},
 ];
@@ -129,6 +133,7 @@ const paths = [
 					{paths.map((p) => (
 						<article class={p.featured ? "path-card is-featured" : "path-card"}>
 							{p.featured && <span class="path-flag">Most Popular</span>}
+							<img class="path-img" src={p.img} alt={p.alt} loading="lazy" decoding="async" />
 							<p class="path-kicker">{p.kicker}</p>
 							<h3 class="path-name">{p.name}</h3>
 							<p class="path-copy">{p.copy}</p>
