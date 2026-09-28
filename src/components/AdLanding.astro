@@ -242,9 +242,12 @@ const paths = [
 		</footer>
 
 		<script is:inline define:vars={{ FORM_ID, slug }}>
-			window.addEventListener("message", (event) => {
-				const d = event.data;
-				if (d?.type !== "hsFormCallback" || d?.eventName !== "onFormSubmitted" || d?.id !== FORM_ID) return;
+			/* HubSpot's current embed (hs-form-frame) announces a submit with this
+			   DOM event, carrying the form's id. It never posts the legacy
+			   hsFormCallback window message, which is what this listened for until
+			   2026-09-28, so no Lead or Google conversion fired before then. */
+			window.addEventListener("hs-form-event:on-submission:success", (event) => {
+				if (event.detail?.formId !== FORM_ID) return;
 				/* Leave only once both tags have had their chance to report: Google
 				   says when it is done, Meta does not, so a timer covers both. */
 				let gone = false;
