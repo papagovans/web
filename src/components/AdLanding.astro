@@ -31,6 +31,9 @@ interface Props {
 	hero: { img: string; alt: string; eyebrow: string; h1: string; sub: string; checks: string[] };
 	/** Three problem and solution pairs, matched to the ads that point here. */
 	pairs: { problem: string; solution: string; body: string }[];
+	/** What We Do heading. Defaults to staging's line; a page whose buyer it
+	    does not suit (Open Calendar avoids anything rugged) sets its own. */
+	showcaseH2?: string;
 	/** Interiors for the What We Do photo row, eight, all 600x400. */
 	photos: { img: string; alt: string }[];
 	reviews: { name: string; quote: string }[];
@@ -39,11 +42,15 @@ interface Props {
 	close: { h2: string; p: string };
 }
 
-const { slug, title, description, hero, pairs, photos, reviews, included, faqs, close } = Astro.props;
+const {
+	slug, title, description, hero, pairs, photos, reviews, included, faqs, close,
+	showcaseH2 = "We transform Sprinter, Transit and ProMaster vans into lean, mean touring machines.",
+} = Astro.props;
 
-/* The ad pages' own line, switched in on 2026-09-17. Printed in the footer as
-   plain text for trust; it is deliberately not a tel: link. */
-const PHONE = "(480) 724-8372";
+/* The main sales line, owner's call 2026-09-28; the ad-only 724 line is
+   retired. Printed in the footer as plain text for trust; it is
+   deliberately not a tel: link. */
+const PHONE = "(480) 761-7175";
 const FORM_ID = "41078f26-c831-4179-a452-d316f1eac0db";
 
 const paths = [
@@ -124,7 +131,7 @@ const paths = [
 		<section class="showcase">
 			<header class="showcase-head">
 				<p class="showcase-eyebrow">What We Do</p>
-				<h2>We transform Sprinter, Transit and ProMaster vans into lean, mean touring machines.</h2>
+				<h2>{showcaseH2}</h2>
 				<ul class="showcase-proof">
 					<li>RVIA certified</li>
 					<li>Authorized Mercedes-Benz, Ford and RAM dealer</li>
