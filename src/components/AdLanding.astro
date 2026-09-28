@@ -13,6 +13,9 @@
  * the footer, which Google Ads and Meta expect on any page collecting contact
  * details. A submission goes to /thank-you, which is where the site link lives.
  *
+ * Papago builds on the Sprinter, Transit and ProMaster (owner, 2026-09-28),
+ * so copy says "the van", never "the Sprinter", except where a photo shows one.
+ *
  * Facts are the staging site's, checked 2026-09-25: $180,000 to $250,000
  * Tailored and $250,000 to $350,000 Bespoke (raised 2026-09-26), van included. No build
  * timelines anywhere, by owner decision 2026-09-25. Anything Tim's brief marks [CONFIRM] stays off these pages.
@@ -55,7 +58,7 @@ const paths = [
 	{
 		name: "Bespoke",
 		kicker: "Start from an empty van",
-		copy: "No floor plan, just a blank Sprinter and a designer who draws it around how you actually travel. It costs more, and for the right owner it is worth it.",
+		copy: "No floor plan, just an empty van and a designer who draws it around how you actually travel. It costs more, and for the right owner it is worth it.",
 		range: "$250,000 - $350,000",
 		img: "/lp/bespoke.avif",
 		alt: "Inside a Bespoke Papago build: hex-tiled galley, wood ceiling and a tiled shower",
@@ -85,7 +88,7 @@ const paths = [
 				<div class="form-card" id="quote">
 					<script src="https://js.hsforms.net/forms/embed/43782575.js" defer></script>
 					<div class="hs-form-frame" data-region="na1" data-form-id={FORM_ID} data-portal-id="43782575"></div>
-					<p class="form-note">Every price includes the Mercedes-Benz Sprinter.</p>
+					<p class="form-note">Every price includes the van.</p>
 				</div>
 			</div>
 		</section>
@@ -96,6 +99,7 @@ const paths = [
 				<span>RVIA certified</span>
 				<span>Veteran owned</span>
 				<span>Built to order in Mesa, AZ</span>
+				<span>Sprinter, Transit or ProMaster</span>
 			</div>
 		</div>
 
@@ -126,8 +130,9 @@ const paths = [
 			<div class="wrap">
 				<h2 class="section-title">What It Costs</h2>
 				<p class="section-lede">
-					Two ways to build, both by hand in Mesa. Every price includes the
-					Mercedes-Benz Sprinter, so the number is the whole number.
+					Two ways to build, both by hand in Mesa, on a Mercedes-Benz Sprinter,
+					Ford Transit or Ram ProMaster. Every price includes the van, so the
+					number is the whole number.
 				</p>
 				<div class="paths-grid">
 					{paths.map((p) => (
