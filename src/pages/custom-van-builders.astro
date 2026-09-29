@@ -1,0 +1,95 @@
+---
+/*
+ * Non-brand search page, 2026-09-29. Google Ads Core (Builders, Sprinter,
+ * Transit + ProMaster), Shopping and Competitors point here, so a stranger
+ * searching "custom camper van builders" lands on those words, and their lead
+ * is measured by this page's form and conversion rather than the homepage's
+ * older tags. Brand search stays on papagovans.com.
+ *
+ * The visitor is comparing builders, so the pairs answer the three things
+ * the 09-13 buyer research says they fear: a price that leaves out the van,
+ * the deposit and then silence, and being bounced between the van maker and
+ * the converter after delivery. No competitor is named, on the page or in
+ * the ads.
+ */
+import AdLanding from "../components/AdLanding.astro";
+---
+
+<AdLanding
+	slug="custom-van-builders"
+	title="Custom Camper Van Builders | Papago Vans"
+	description="Custom camper vans built to order in Mesa, AZ on the Sprinter, Transit or ProMaster. From $180,000, van included. RVIA certified and veteran owned."
+	hero={{
+		img: "/lp/hero-lg.webp",
+		alt: "A finished Papago custom camper van",
+		eyebrow: "Custom camper van builder · Mesa, AZ",
+		h1: "Custom Camper Vans, Built To Order",
+		sub: "From $180,000 with the van included. Sprinter, Transit or ProMaster, designed around how you travel and built in our shop in Mesa, Arizona.",
+		checks: [
+			"Van included in every price",
+			"RVIA certified, veteran owned, 4.7 stars from 70+ reviews",
+			"Service Department in Mesa after delivery",
+		],
+	}}
+	pairs={[
+		{
+			problem: "Most quotes cover the conversion. The van is extra.",
+			solution: "Our price includes the van.",
+			body: "A Tailored build runs $180,000 to $250,000 and Bespoke $250,000 to $350,000, and both include the Sprinter, Transit or ProMaster it is built on. One number, not two.",
+		},
+		{
+			problem: "The biggest fear with any builder: the deposit, and then silence.",
+			solution: "Come walk our shop in Mesa.",
+			body: "RVIA certified, veteran owned, and 4.7 stars from more than 70 verified reviews. In Arizona? See vans being built and meet the people building them before you decide anything.",
+		},
+		{
+			problem: "After delivery, owners get bounced between the van maker and the builder.",
+			solution: "Service from the shop that built it.",
+			body: "Every build carries our 1-year craftsmanship warranty, and our Service Department in Mesa handles repairs and upgrades on the van we built for you.",
+		},
+	]}
+	photos={[
+		{ img: "/lp/inside/adv-4.webp", alt: "A turquoise galley and dinette running the length of a Sprinter, cab seats at the far end" },
+		{ img: "/lp/inside/ret-1.webp", alt: "A tiled shower and toilet beside the bed in a Sprinter build" },
+		{ img: "/lp/inside/adv-1.webp", alt: "A Ford Transit build seen through open rear doors: bed on top, gear garage below" },
+		{ img: "/lp/inside/ret-2.webp", alt: "A made bed across the back of the van under a pine ceiling, rear window open on the view" },
+		{ img: "/lp/inside/adv-2.webp", alt: "Papago's own control panel in a Ram ProMaster build: lights, battery monitor, inverter, water pump and hot water" },
+		{ img: "/lp/inside/ret-4.webp", alt: "A butcher block counter leading back to a shower, pine ceiling and warm lighting" },
+		{ img: "/lp/inside/adv-3.webp", alt: "An induction cooktop in a butcher block counter, looking forward to the cab of a Ford Transit" },
+		{ img: "/lp/inside/ret-7.webp", alt: "A Ford Transit build: bed across the back, cabinets and counter along the side" },
+	]}
+	reviews={[
+		{ name: "Brian L.", quote: "There are a handful of van conversion companies in the Phoenix area but Papago is unique. If I ever plan to do another van conversion, I can't imagine doing it anywhere else." },
+		{ name: "Debi L.", quote: "I was very anxious since I was not in the same state, but they went above and beyond my wildest dreams and created an absolutely stunning van for me." },
+		{ name: "Mike and Melanie", quote: "There is absolutely no way that we could have found a better company to build out our custom dream van to see the USA. Hands down, they're the best in the business. We give our highest recommendation (10+ stars)." },
+	]}
+	included={{
+		h2: "What Comes With A Papago Build",
+		items: [
+			["The van itself", "Sprinter, Transit or ProMaster, included in the price"],
+			["Lithium power and solar", "400W or 600W on the roof, charging while you drive"],
+			["Heat and air", "Run from the battery, no campground plug needed"],
+			["Hot water and a shower", "Exterior shower on any build; indoor in most floor plans"],
+			["A real kitchen", "Butcher block counter, induction cooktop option"],
+			["Storage built for the road", "Drawers, cabinets and a gear garage that stay shut"],
+			["Havelock wool insulation", "Handles moisture better than foam, from Phoenix heat to 20 degrees"],
+			["RVIA certified", "The standard lenders, insurers and campgrounds look for"],
+			["1-year craftsmanship warranty", "On everything we build"],
+			["Service Department in Mesa", "Repairs and upgrades from the shop that built it"],
+			["Financing through Hearth", "The van and the build together, or the build on its own"],
+			["Veteran owned", "Built by people who show up"],
+		],
+	}}
+	faqs={[
+		{ q: "How much does a custom camper van cost?", a: "A Tailored build runs $180,000 to $250,000 and Bespoke $250,000 to $350,000. Both include the van. Most of the range is chassis length and the equipment you choose." },
+		{ q: "Which vans do you build on?", a: "The Mercedes-Benz Sprinter, the Ford Transit and the Ram ProMaster. Whichever you choose, the price includes the van." },
+		{ q: "What is the difference between Tailored and Bespoke?", a: "Tailored starts from one of our proven floor plans and is fitted to you. Bespoke starts from an empty van and a designer, so the van gets drawn around your gear, your dogs or the way you travel." },
+		{ q: "Can we come see the shop?", a: "Please do. Tell us when you would like to visit and we will walk you through vans being built." },
+		{ q: "What happens after delivery?", a: "Every build carries our 1-year craftsmanship warranty, and our Service Department in Mesa handles repairs and upgrades." },
+		{ q: "Can we finance it?", a: "Yes, through our partner Hearth. We can finance the van and the build together, or the build on its own." },
+	]}
+	close={{
+		h2: "Get A Real Number On Your Van",
+		p: "Tell us how you travel. We will design the van around it and price it, van included.",
+	}}
+/>
