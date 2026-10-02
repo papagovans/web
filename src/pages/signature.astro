@@ -3,7 +3,7 @@
  * Signature Pre-Builds, go.papagovans.com/signature
  *
  * Where the "Signature Pre-Build" card on /home lands. It is the fixed-layout
- * product line: the five floor plans, what each one is for, and the one thing
+ * product line: the four floor plans, what each one is for, and the one thing
  * a buyer actually has to decide between them, which is how many people sleep
  * in it and how long it can sit off grid.
  *
@@ -11,13 +11,13 @@
  * configurator's catalog (papagovans-build/lib/catalog.ts), so the two
  * products cannot tell a buyer different things.
  *
- * Pricing is deliberately one number, not five. Phase 1 base price is
+ * Pricing is deliberately one number, not four. Phase 1 base price is
  * $180,000 across every plan, van included, and inventing a spread here just
  * to make the cards look different would put a made-up number in front of
  * ownership. What varies is the trim, which is what the range on /home covers.
  *
  * Photos are stand-ins from the existing library, not per-plan renders. All
- * five plans still share one render set in the build app too.
+ * four plans still share one render set in the build app too.
  */
 
 import Site from "../layouts/Site.astro";
@@ -69,17 +69,6 @@ const plans = [
 			{ k: "Fresh Water", v: "33G" },
 		],
 	},
-	{
-		name: "Rainier",
-		tagline: "The weekend warrior. Everything you need, nothing you don't.",
-		img: "Sweeney-Van-Final-Shots-1-Large-768x512.jpeg",
-		copy: "The honest one. Everything you need for a long weekend and not one system you will never turn on. It is the fastest of the five to build and the easiest to live with.",
-		specs: [
-			{ k: "Sleeps", v: "2" },
-			{ k: "Battery", v: "460Ah" },
-			{ k: "Fresh Water", v: "20G" },
-		],
-	},
 ];
 
 const why = [
@@ -111,7 +100,7 @@ const why = [
 			</nav>
 			<h1>Signature Pre-Builds</h1>
 			<p class="sig-lede">
-				Five layouts we designed ourselves, built over and over, and refined until they
+				Four layouts we designed ourselves, built over and over, and refined until they
 				were right. The floor plan and cabinetry are set, which is exactly why they cost
 				less and reach you sooner. You pick the plan and the finishes. We handle the rest.
 			</p>
@@ -123,14 +112,14 @@ const why = [
 				</div>
 				<div>
 					<p class="meta-label">Layouts</p>
-					<p class="meta-value">Five</p>
+					<p class="meta-value">Four</p>
 					<p class="meta-note">All built in Mesa, Arizona</p>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- The five plans -->
+	<!-- The four plans -->
 	<section class="sig-plans">
 		<div class="wrap sig-list">
 			{plans.map((p, i) => (
@@ -217,7 +206,7 @@ const why = [
 		.meta-value { font-size: 26px; font-weight: 700; margin-top: 2px; }
 		.meta-note { font-size: 12px; color: var(--muted); }
 
-		/* The five plans. Alternating sides so a long page still has rhythm. */
+		/* The four plans. Alternating sides so a long page still has rhythm. */
 		.sig-plans { padding: 64px 0 24px; }
 		.sig-list { display: flex; flex-direction: column; gap: 28px; }
 		.plan {
