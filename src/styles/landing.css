@@ -208,3 +208,10 @@ ul { margin: 0; padding: 0; list-style: none; }
 .thanks-card h1 { font-size: clamp(32px, 5vw, 52px); color: var(--navy); margin-top: 12px; }
 .thanks-card p:not(.eyebrow) { margin-top: 18px; font-size: 17px; line-height: 1.65; color: var(--muted); }
 .thanks-card .btn { margin-top: 32px; }
+
+/* Jeremy's calendar on the thank-you page, $170K+ budgets only, owner 2026-10-05. */
+.thanks { gap: 28px; }
+.book-jeremy[hidden] { display: none; }
+.book-jeremy { max-width: 900px; width: 100%; padding-bottom: 24px; }
+.book-jeremy h2 { font-size: clamp(24px, 3.4vw, 34px); color: var(--navy); }
+.book-jeremy .meetings-iframe-container { margin-top: 20px; min-height: 640px; }

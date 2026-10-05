@@ -32,5 +32,22 @@ const SITE = "https://papagovans.com";
 			</p>
 			<a href={SITE} class="btn btn-gold">Explore Papago Vans <span class="arw">&#8853;</span></a>
 		</div>
+		<div class="wrap thanks-card book-jeremy" id="book-jeremy" hidden>
+			<h2>Skip the Wait. Book Your Call With Jeremy.</h2>
+			<p>Jeremy runs sales at Papago. Pick a time that works and he will call you to talk through your build, your budget and your timing.</p>
+			<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/jeremy-piccirillo?embed=true"></div>
+		</div>
+		<script is:inline>
+			/* Set by the landing page form for a $170K+ budget, owner 2026-10-05.
+			   Everyone else waits for an SDR. */
+			try {
+				if (sessionStorage.getItem("papago-calendar") === "1") {
+					document.getElementById("book-jeremy").hidden = false;
+					const s = document.createElement("script");
+					s.src = "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
+					document.body.appendChild(s);
+				}
+			} catch (e) {}
+		</script>
 	</main>
 </Landing>
