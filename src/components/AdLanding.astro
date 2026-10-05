@@ -253,13 +253,14 @@ const paths = [
 				   says when it is done, Meta does not, so a timer covers both. */
 				let gone = false;
 				const go = () => { if (!gone) { gone = true; location.href = "/thank-you?from=" + slug; } };
-				/* Owner 2026-10-05: a $170K+ budget is offered Jeremy's calendar on the
-				   thank-you page. It rides in sessionStorage, never the URL. Stored
-				   values: "$170K - $200K", "$200K+" (not "$150K - $170K"). */
+				/* Owner 2026-10-05: a $190K+ budget is offered Jeremy's calendar on the
+				   thank-you page; $170K - $190K goes to an SDR. It rides in
+				   sessionStorage, never the URL. Stored values: "$190K - $220K",
+				   "$220K - $260K", "$260K+". */
 				try { sessionStorage.removeItem("papago-calendar"); } catch (e) {}
 				window.HubSpotFormsV4?.getFormFromEvent?.(event)?.getFormFieldValues?.().then((v) => {
 					const budget = String(v.find((f) => f.name.endsWith("/budget_including_the_van"))?.value ?? "");
-					if (/^\$(170|200)K/.test(budget)) try { sessionStorage.setItem("papago-calendar", "1"); } catch (e) {}
+					if (/^\$(190|220|260)K/.test(budget)) try { sessionStorage.setItem("papago-calendar", "1"); } catch (e) {}
 				}).catch(() => {});
 				window.gtag?.("event", "conversion", {
 					send_to: "AW-11054135599/I6MCKTNpIccEK_ygpcp",
