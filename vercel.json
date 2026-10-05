@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/home", "destination": "https://papagovans.com/", "statusCode": 301 },
+    { "source": "/signature", "destination": "https://papagovans.com/van-conversion-build-tiers/", "statusCode": 301 }
+  ]
+}
