@@ -215,3 +215,5 @@ ul { margin: 0; padding: 0; list-style: none; }
 .book-jeremy { max-width: 900px; width: 100%; padding-bottom: 24px; }
 .book-jeremy h2 { font-size: clamp(24px, 3.4vw, 34px); color: var(--navy); }
 .book-jeremy .meetings-iframe-container { margin-top: 20px; min-height: 640px; }
+.thanks-explore { font-size: 15px; }
+.thanks-explore a { color: var(--navy); font-weight: 600; }

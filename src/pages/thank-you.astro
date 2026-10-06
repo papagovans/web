@@ -8,7 +8,8 @@
  * ?from= carries the landing page slug. Nothing reads it yet; it is there so
  * the page view can be told apart in analytics later.
  *
- * The one button goes to the main website. papagovans.com is the live site
+ * Owner 2026-10-06: the page ends on Jeremy's calendar for everyone; the
+ * main website is a small link under it. papagovans.com is the live site
  * today; point it at the rebuilt site once that replaces it.
  */
 import Landing from "../layouts/Landing.astro";
@@ -30,24 +31,14 @@ const SITE = "https://papagovans.com";
 				We have your details. Someone from our shop in Mesa, Arizona will be in
 				touch to talk through how you travel and what your van should do.
 			</p>
-			<a href={SITE} class="btn btn-gold">Explore Papago Vans <span class="arw">&#8853;</span></a>
 		</div>
-		<div class="wrap thanks-card book-jeremy" id="book-jeremy" hidden>
+		<div class="wrap thanks-card book-jeremy" id="book-jeremy">
 			<h2>Skip the Wait. Book Your Call With Jeremy.</h2>
 			<p>Jeremy runs sales at Papago. Pick a time that works and he will call you to talk through your build, your budget and your timing.</p>
 			<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/jeremy-piccirillo?embed=true"></div>
+			<p class="thanks-explore">Not ready to talk yet? <a href={SITE}>Explore Papago Vans</a></p>
 		</div>
-		<script is:inline>
-			/* Set by the landing page form for a $190K+ budget, owner 2026-10-05.
-			   Everyone else waits for an SDR. */
-			try {
-				if (sessionStorage.getItem("papago-calendar") === "1") {
-					document.getElementById("book-jeremy").hidden = false;
-					const s = document.createElement("script");
-					s.src = "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
-					document.body.appendChild(s);
-				}
-			} catch (e) {}
-		</script>
+		<!-- Owner 2026-10-06: every landing page lead is offered Jeremy's calendar. -->
+		<script src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js" is:inline defer></script>
 	</main>
 </Landing>
