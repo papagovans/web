@@ -253,14 +253,29 @@ const paths = [
 				   says when it is done, Meta does not, so a timer covers both. */
 				let gone = false;
 				const go = () => { if (!gone) { gone = true; location.href = "/thank-you?from=" + slug; } };
-				window.gtag?.("event", "conversion", {
-					send_to: "AW-11054135599/I6MCKTNpIccEK_ygpcp",
-					value: 1.0,
-					currency: "USD",
-					event_callback: go,
+				/* What they typed goes with the lead (owner 2026-10-15): Google
+				   enhanced conversions and Meta advanced matching hash it in the
+				   browser. event_id lets Meta pair this Lead with its server copy.
+				   A form that cannot say what was typed still reports the lead. */
+				const form = window.HubSpotFormsV4?.getFormFromEvent?.(event);
+				const read = form?.getFormFieldValues?.() ?? Promise.resolve([]);
+				Promise.race([read, new Promise((r) => setTimeout(() => r([]), 600))]).catch(() => []).then((values) => {
+					const get = (key) => String((values || []).find((f) => f.name.endsWith("/" + key))?.value ?? "").trim() || undefined;
+					const user = { email: get("email"), phone_number: get("mobilephone") ?? get("phone"), first_name: get("firstname"), last_name: get("lastname") };
+					const eventId = crypto.randomUUID?.() ?? Date.now() + "-" + Math.random().toString(36).slice(2);
+					window.dataLayer = window.dataLayer || [];
+					window.dataLayer.push({ event: "generate_lead", form_name: "landing_page", landing_page: slug, event_id: eventId, user_data: user });
+					window.gtag?.("set", "user_data", user);
+					window.gtag?.("event", "conversion", {
+						send_to: "AW-11054135599/I6MCKTNpIccEK_ygpcp",
+						value: 1.0,
+						currency: "USD",
+						event_callback: go,
+					});
+					window.fbq?.("init", "611277970549442", { em: user.email?.toLowerCase(), ph: user.phone_number?.replace(/\D/g, ""), fn: user.first_name?.toLowerCase(), ln: user.last_name?.toLowerCase() });
+					window.fbq?.("track", "Lead", { content_name: slug }, { eventID: eventId });
+					setTimeout(go, 1500);
 				});
-				window.fbq?.("track", "Lead", { content_name: slug });
-				setTimeout(go, 1500);
 			});
 		</script>
 
