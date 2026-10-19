@@ -267,7 +267,7 @@ const paths = [
 					window.dataLayer.push({ event: "generate_lead", form_name: "landing_page", landing_page: slug, event_id: eventId, user_data: user });
 					window.gtag?.("set", "user_data", user);
 					window.gtag?.("event", "conversion", {
-						send_to: "AW-11054135599/I6MCKTNpIccEK_ygpcp",
+						send_to: "AW-11054135599/0QiWCNKjpJIdEK_ygpcp", /* Landing Page Lead; the old label lacked its leading dash and matched nothing (fixed 2026-10-19) */
 						value: 1.0,
 						currency: "USD",
 						event_callback: go,
