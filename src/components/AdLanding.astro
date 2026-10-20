@@ -252,7 +252,8 @@ const paths = [
 				/* Leave only once both tags have had their chance to report: Google
 				   says when it is done, Meta does not, so a timer covers both. */
 				let gone = false;
-				const go = () => { if (!gone) { gone = true; location.href = "/thank-you?from=" + slug; } };
+				let fit = true;
+				const go = () => { if (!gone) { gone = true; location.href = "/thank-you?from=" + slug + (fit ? "" : "&fit=no"); } };
 				/* What they typed goes with the lead (owner 2026-10-15): Google
 				   enhanced conversions and Meta advanced matching hash it in the
 				   browser. event_id lets Meta pair this Lead with its server copy.
@@ -261,6 +262,11 @@ const paths = [
 				const read = form?.getFormFieldValues?.() ?? Promise.resolve([]);
 				Promise.race([read, new Promise((r) => setTimeout(() => r([]), 600))]).catch(() => []).then((values) => {
 					const get = (key) => String((values || []).find((f) => f.name.endsWith("/" + key))?.value ?? "").trim() || undefined;
+					/* Owner 2026-10-20: Jeremy's calendar is for a fit. Not a fit: under
+					   $140K, needs the full RV loan, or just looking. Same rule as the
+					   main site's HubSpotForm.tsx; unreadable answers count as a fit. */
+					fit = !["Under $140K", "I'll need a 15-20 year RV loan for the full amount", "Just looking for now"]
+						.some((no) => [get("budget_including_the_van"), get("payment_plan"), get("build_timeline")].includes(no));
 					const user = { email: get("email"), phone_number: get("mobilephone") ?? get("phone"), first_name: get("firstname"), last_name: get("lastname") };
 					const eventId = crypto.randomUUID?.() ?? Date.now() + "-" + Math.random().toString(36).slice(2);
 					window.dataLayer = window.dataLayer || [];
