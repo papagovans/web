@@ -8,9 +8,8 @@
  * ?from= carries the landing page slug. Nothing reads it yet; it is there so
  * the page view can be told apart in analytics later.
  *
- * Owner 2026-10-20: the page ends on Jeremy's calendar for a fit; ?fit=no
- * (set by AdLanding.astro) swaps it for the honest "not yet" answer. The
- * main website is a small link under it. papagovans.com is the live site
+ * The page ends on Jeremy's calendar for everyone; the fit check was
+ * removed 2026-10-22 because prospects found it offensive. The main website is a small link under it. papagovans.com is the live site
  * today; point it at the rebuilt site once that replaces it.
  */
 import Landing from "../layouts/Landing.astro";
@@ -34,25 +33,15 @@ const SITE = "https://papagovans.com";
 			</p>
 		</div>
 		<div class="wrap thanks-card book-jeremy" id="book-jeremy">
-			<h2>Looks like a fit. Pick a time with our Senior Build Consultant.</h2>
+			<h2>Pick a time with our Senior Build Consultant.</h2>
 			<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/jeremy-piccirillo?embed=true"></div>
 			<p>If something comes up, you can reschedule from your confirmation email.</p>
 			<p class="thanks-explore">Not ready to talk yet? <a href={SITE}>Explore Papago Vans</a></p>
 		</div>
-		<div class="wrap thanks-card" id="not-yet" hidden>
-			<h2>Thanks. Here&rsquo;s the honest answer.</h2>
-			<p>Based on what you told us, a Papago probably isn&rsquo;t the right move today. We&rsquo;d rather tell you now than six months into a wait.</p>
-		</div>
 		<script is:inline>
-			/* Not a fit: show the honest answer, and never load the calendar. */
-			if (new URLSearchParams(location.search).get("fit") === "no") {
-				document.getElementById("book-jeremy").remove();
-				document.getElementById("not-yet").hidden = false;
-			} else {
-				const s = document.createElement("script");
-				s.src = "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
-				document.body.appendChild(s);
-			}
+			const s = document.createElement("script");
+			s.src = "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
+			document.body.appendChild(s);
 		</script>
 	</main>
 </Landing>
