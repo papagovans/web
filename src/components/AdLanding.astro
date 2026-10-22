@@ -274,6 +274,15 @@ const paths = [
 					});
 					window.fbq?.("init", "611277970549442", { em: user.email?.toLowerCase(), ph: user.phone_number?.replace(/\D/g, ""), fn: user.first_name?.toLowerCase(), ln: user.last_name?.toLowerCase() });
 					window.fbq?.("track", "Lead", { content_name: slug }, { eventID: eventId });
+					/* Owner 2026-10-22: a second, quieter signal for Meta to optimize on.
+					   Budget answered (every option is $140K+ now) and not paying with a
+					   full RV loan. The buyer sees nothing. Same rule as the main site's
+					   HubSpotForm.tsx; unreadable answers do not qualify. */
+					const budget = get("budget_including_the_van"), pay = get("payment_plan");
+					if (budget && budget !== "Under $140K" && pay && !/RV loan/i.test(pay)) {
+						window.fbq?.("trackCustom", "QualifiedLead", { content_name: slug }, { eventID: eventId + "-q" });
+						window.dataLayer.push({ event: "qualified_lead", form_name: "landing_page", landing_page: slug, event_id: eventId + "-q" });
+					}
 					setTimeout(go, 1500);
 				});
 			});
