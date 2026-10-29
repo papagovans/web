@@ -209,7 +209,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .thanks-card p:not(.eyebrow) { margin-top: 18px; font-size: 17px; line-height: 1.65; color: var(--muted); }
 .thanks-card .btn { margin-top: 32px; }
 
-/* Jeremy's calendar on the thank-you page, $170K+ budgets only, owner 2026-10-05. */
+/* The Client Advisor's calendar on the thank-you page, for everyone. */
 .thanks { gap: 28px; }
 .book-jeremy[hidden] { display: none; }
 .book-jeremy { max-width: 900px; width: 100%; padding-bottom: 24px; }
