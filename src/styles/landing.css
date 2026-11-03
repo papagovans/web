@@ -215,5 +215,14 @@ ul { margin: 0; padding: 0; list-style: none; }
 .book-jeremy { max-width: 900px; width: 100%; padding-bottom: 24px; }
 .book-jeremy h2 { font-size: clamp(24px, 3.4vw, 34px); color: var(--navy); }
 .book-jeremy .meetings-iframe-container { margin-top: 20px; min-height: 640px; }
+/* The research ending (thank-you.astro ?path=research), owner 2026-11-03. */
+.answers[hidden] { display: none; }
+.answers { max-width: 680px; text-align: left; }
+.answers h2 { font-size: clamp(24px, 3.4vw, 34px); color: var(--navy); }
+.answers ul { list-style: none; margin: 20px 0 0; padding: 0; }
+.answers li a { display: block; padding: 14px 0; border-bottom: 1px solid var(--line); color: var(--navy); font-weight: 600; text-decoration: none; }
+.answers li a:hover { text-decoration: underline; }
+.answers .answers-talk { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.answers .btn-outline { font: inherit; font-weight: 600; color: var(--navy); background: transparent; border: 1.5px solid var(--navy); border-radius: 999px; padding: 10px 20px; cursor: pointer; }
 .thanks-explore { font-size: 15px; }
 .thanks-explore a { color: var(--navy); font-weight: 600; }

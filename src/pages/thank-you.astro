@@ -8,7 +8,12 @@
  * ?from= carries the landing page slug. Nothing reads it yet; it is there so
  * the page view can be told apart in analytics later.
  *
- * The page ends on the Client Advisor's (Rachel's) calendar for everyone, so
+ * ?path=research (owner 2026-11-03) swaps the calendar for answers: the lead
+ * said they are early, or are not driving within a year. ?t= lists the topics
+ * they ticked, which go first. A "Talk to a Client Advisor" button brings the
+ * calendar back.
+ *
+ * Otherwise the page ends on the Client Advisor's (Rachel's) calendar, so
  * she qualifies each lead before the Senior Build Consultant books them
  * (sales manager, 2026-10-29); the fit check was
  * removed 2026-10-22 because prospects found it offensive. The main website is a small link under it. papagovans.com is the live site
@@ -34,6 +39,19 @@ const SITE = "https://papagovans.com";
 				touch to talk through how you travel and what your van should do.
 			</p>
 		</div>
+		<div class="wrap thanks-card answers" id="answers" hidden>
+			<h2>Here are the answers most people want first.</h2>
+			<p>We&rsquo;ll send them to your inbox too.</p>
+			<ul>
+				<li data-t="cost"><a href={`${SITE}/van-conversion-build-tiers/`}>What does a Papago build cost?</a></li>
+				<li data-t="build_time"><a href={`${SITE}/our-process/`}>How long does a build take?</a></li>
+				<li data-t="floor_plan"><a href={`${SITE}/which-build-fits-you/`}>Which build fits me?</a></li>
+				<li data-t="financing"><a href={`${SITE}/financing/`}>Can I finance a build?</a></li>
+				<li data-t="see_a_van"><a href={`${SITE}/van-life-build-gallery/`}>What do finished builds look like?</a></li>
+				<li data-t="other"><a href={`${SITE}/faq/`}>Everything else people ask</a></li>
+			</ul>
+			<p class="answers-talk">Ready sooner than you thought? <button type="button" class="btn-outline" id="talk">Talk to a Client Advisor</button></p>
+		</div>
 		<div class="wrap thanks-card book-jeremy" id="book-jeremy">
 			<h2>Pick a time with our Client Advisor.</h2>
 			<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/rachel-handzlik?embed=true"></div>
@@ -41,9 +59,22 @@ const SITE = "https://papagovans.com";
 			<p class="thanks-explore">Not ready to talk yet? <a href={SITE}>Explore Papago Vans</a></p>
 		</div>
 		<script is:inline>
-			const s = document.createElement("script");
-			s.src = "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
-			document.body.appendChild(s);
+			/* The meetings embed sizes itself on load, so it loads only once the calendar is showing. */
+			const book = () => {
+				document.getElementById("book-jeremy").hidden = false;
+				const s = document.createElement("script");
+				s.src = "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
+				document.body.appendChild(s);
+			};
+			const q = new URLSearchParams(location.search);
+			if (q.get("path") === "research") {
+				const answers = document.getElementById("answers"), list = answers.querySelector("ul");
+				const picked = (q.get("t") || "").split(",");
+				[...list.children].filter((li) => picked.includes(li.dataset.t)).reverse().forEach((li) => list.prepend(li));
+				document.getElementById("book-jeremy").hidden = true;
+				answers.hidden = false;
+				document.getElementById("talk").onclick = () => { answers.hidden = true; book(); };
+			} else book();
 		</script>
 	</main>
 </Landing>
