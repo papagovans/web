@@ -1,0 +1,88 @@
+---
+/*
+ * WANNAGO: people who commented the keyword on a Papago social post
+ * and got this link back. Copy of the base page with the headline and
+ * messaging reworked around the word (owner, 2026-11-10).
+ * Copy and facts rules live in AdLanding.astro.
+ */
+import AdLanding from "../components/AdLanding.astro";
+---
+
+<AdLanding
+	slug="wannago"
+	title="WANNAGO? | Papago Vans"
+	description="Custom camper vans on the Sprinter, Transit or ProMaster, built to order in Mesa, AZ. Van included in every price. Veteran owned, RVIA certified."
+	hero={{
+		img: "/lp/hero-lg.webp",
+		alt: "A Papago Vans Sprinter with its pop-top raised at a pine forest campsite, a family around the fire at dusk",
+		eyebrow: "You commented WANNAGO · Mesa, AZ",
+		h1: "You Said WANNAGO. Here's How You Get There.",
+		sub: "A van that's ready to go when you are: your bed, your kitchen and your shower, parked wherever the road ends. Built to order in Mesa, Arizona, on a Sprinter, Transit or ProMaster, with the van included in the price.",
+		checks: [
+			"Power, water, heat and air built in",
+			"Veteran owned and RVIA certified",
+			"4.9 stars, 300+ happy owners",
+		],
+	}}
+	pairs={[
+		{
+			problem: "Wanting to go is easy. Getting there is the hard part.",
+			solution: "Your trip starts in the driveway.",
+			body: "No hotel by the highway exit, no 11 o'clock checkout, no repacking the car every morning. A Papago goes where you were headed and stays as long as you like.",
+		},
+		{
+			problem: "Production vans are built for the average buyer.",
+			solution: "Yours is built around how you travel.",
+			body: "Pick one of four floor plans we have built dozens of times, then decide every system in it: power, water, heat, kitchen, storage and finishes.",
+		},
+		{
+			problem: "The quote was not the price.",
+			solution: "Our price includes the van.",
+			body: "Every Papago is a custom build, van included. The price comes down to chassis length and how much power, water and off-road equipment you choose.",
+		},
+	]}
+	photos={[
+		{ img: "/lp/inside/adv-1.webp", alt: "A Ford Transit build seen through open rear doors: bed on top, gear garage below" },
+		{ img: "/lp/inside/ret-1.webp", alt: "A tiled shower and toilet beside the bed in a Sprinter build" },
+		{ img: "/lp/inside/adv-2.webp", alt: "Papago's own control panel in a Ram ProMaster build: lights, battery monitor, inverter, water pump and hot water" },
+		{ img: "/lp/inside/ret-2.webp", alt: "A made bed across the back of the van under a pine ceiling, rear window open on the view" },
+		{ img: "/lp/inside/adv-4.webp", alt: "A turquoise galley and dinette running the length of a Sprinter, cab seats at the far end" },
+		{ img: "/lp/inside/ret-6.webp", alt: "A farmhouse faucet over a sink with a cutting board cover, induction cooktop beside it" },
+		{ img: "/lp/inside/adv-5.webp", alt: "An L-shaped galley with undermount sink and induction cooktop behind the swivelled front seats" },
+		{ img: "/lp/inside/ret-3.webp", alt: "A bed with sunrise pillows, the rear window framing the Arizona desert" },
+	]}
+	reviews={[
+		{ name: "Mike and Melanie", quote: "There is absolutely no way that we could have found a better company to build out our custom dream van to see the USA. Hands down, they're the best in the business." },
+		{ name: "Danielle M.", quote: "They created my custom camper van better than I even imagined. The attention to detail and the little things meant the most!" },
+		{ name: "Nicole P.", quote: "They listened to my wants and needs and helped me every step of the way to design my campervan exactly how I wanted it." },
+	]}
+	included={{
+		h2: "What Goes Into A Papago",
+		items: [
+			["Lithium power and solar", "400W or 600W on the roof, and it charges while you drive"],
+			["Heat and air conditioning", "Comfortable in the desert or the mountains"],
+			["Hot and cold running water", "Undermount sink, real plumbing"],
+			["A real kitchen", "Acacia butcher block counter, induction cooktop option"],
+			["Shower options", "Exterior shower on any build; indoor shower and toilet in most floor plans"],
+			["Custom cabinetry", "Built in our Mesa shop to fit your layout"],
+			["Your finishes", "Flooring, walls, cabinets and countertop from in-stock swatches"],
+			["The van itself", "Sprinter, Transit or ProMaster, included in the price"],
+			["RVIA certified", "The standard lenders, insurers and campgrounds look for"],
+			["1-year craftsmanship warranty", "We stand behind what we build"],
+			["Financing available", "The van and the build together, or the build on its own"],
+			["Veteran owned", "Built by people who show up"],
+		],
+	}}
+	faqs={[
+		{ q: "How much does a Papago van cost?", a: "Every Papago is a custom build with the van included, so the price depends on chassis length and how much power, water and off-road equipment you specify. Tell us how you travel and we will give you a real number." },
+		{ q: "Do I need to bring my own van?", a: "No. We source it through dealerships we already work with, and the price includes it. If you already own a Sprinter, Transit or ProMaster, bring it and we will price the build on its own." },
+		{ q: "Can I have a bathroom and a shower inside?", a: "Yes. An enclosed indoor shower and toilet fit in most of our floor plans, and every build can carry an exterior shower as well." },
+		{ q: "Can I finance my build?", a: "Yes. We can arrange financing for the van and the build together, or the build on its own." },
+		{ q: "Why does RVIA certification matter?", a: "Lenders and insurers treat a certified conversion as an RV rather than a modified cargo van, which is what makes RV-term lending and proper coverage available. Many campgrounds require it too." },
+		{ q: "How many people can it sleep?", a: "Two to six, depending on the floor plan, the chassis length and whether you add a pop-top." },
+	]}
+	close={{
+		h2: "Still Saying WANNAGO?",
+		p: "Then let's go. Tell us how you travel and we will put a real number on your build, van included.",
+	}}
+/>
